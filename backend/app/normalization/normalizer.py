@@ -12,6 +12,7 @@ Raw payloads are never copied: only protocol metadata and short summaries.
 
 from __future__ import annotations
 
+import json
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any
@@ -123,6 +124,25 @@ def _tuple(rec: dict[str, Any]) -> tuple[str | None, int | None, str | None, int
 
 def _eve_proto(ev: dict[str, Any]) -> str:
     return str(ev.get("proto", "")).lower() or "unknown"
+
+
+def _eve_order(ev: dict[str, Any]) -> tuple[Any, ...]:
+    """Deterministic ordering for EVE events.
+
+    Suricata flushes open flows with identical timestamps at the end of a pcap
+    and its flow_id is randomly seeded, so neither can be used alone.
+    """
+    return (
+        ev["_ts"],
+        str(ev.get("src_ip", "")),
+        int(ev.get("src_port") or 0),
+        str(ev.get("dest_ip", "")),
+        int(ev.get("dest_port") or 0),
+        _eve_proto(ev),
+        str((ev.get("flow") or {}).get("start", "")),
+        int(ev.get("pcap_cnt") or 0),
+        json.dumps({k: v for k, v in ev.items() if k not in ("flow_id", "_ts")}, sort_keys=True, default=str),
+    )
 
 
 class Normalizer:
@@ -472,7 +492,7 @@ class Normalizer:
             return min(candidates, key=lambda a: abs(a.ts - ev["_ts"]))
 
         detection_seq = 0
-        alert_rows = sorted(self.eve.get("alert"), key=lambda e: (e["_ts"], e.get("pcap_cnt", 0)))
+        alert_rows = sorted(self.eve.get("alert"), key=_eve_order)
         for ev in alert_rows:
             alert = ev.get("alert") or {}
             src, dst = normalize_ip(ev.get("src_ip")), normalize_ip(ev.get("dest_ip"))
@@ -556,7 +576,7 @@ class Normalizer:
             "smb": lambda e: {k: (e.get("smb") or {}).get(k) for k in ("command", "status", "dialect", "share", "filename")},
         }
         for event_type in ("flow", "http", "dns", "tls", "ssh", "fileinfo", "anomaly", "smb", "dcerpc", "rdp", "krb5"):
-            for ev in sorted(self.eve.get(event_type), key=lambda e: (e["_ts"], e.get("pcap_cnt", 0))):
+            for ev in sorted(self.eve.get(event_type), key=_eve_order):
                 src, dst = normalize_ip(ev.get("src_ip")), normalize_ip(ev.get("dest_ip"))
                 evidence = self._add_evidence(
                     id=self._next_id(f"ev-suricata-{event_type}"),

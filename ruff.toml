@@ -1,0 +1,2 @@
+# Shared settings for scripts/ (backend/ has its own pyproject.toml).
+extend = "backend/pyproject.toml"

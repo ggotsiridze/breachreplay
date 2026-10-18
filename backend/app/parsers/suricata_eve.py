@@ -45,6 +45,11 @@ def parse_eve_lines(lines: list[str]) -> EveParseResult:
                 raise ValueError("not an object")
             event_type = obj["event_type"]
             obj["_ts"] = parse_eve_timestamp(obj["timestamp"])
+            # Flow records are written when the flow manager times the flow out,
+            # which depends on processing timing; the flow's own start is stable.
+            start = (obj.get("flow") or {}).get("start") if event_type == "flow" else None
+            if start:
+                obj["_ts"] = parse_eve_timestamp(start)
         except (ValueError, KeyError, TypeError, AttributeError):
             result.malformed += 1
             continue

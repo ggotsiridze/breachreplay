@@ -80,3 +80,23 @@ def test_no_raw_payloads_in_evidence(normalized):
 def test_empty_inputs_normalize_cleanly():
     result = normalize(ZeekParseResult(), EveParseResult())
     assert result.assets == [] and result.evidence == [] and result.activities == []
+
+
+def test_suricata_ordering_ignores_random_flow_ids(normalized, demo_context):
+    import json as _json
+    import random
+
+    from app.parsers.suricata_eve import parse_eve_file
+    from app.parsers.zeek_logs import parse_zeek_directory
+
+    from .conftest import DEMO_ANALYSIS
+
+    eve = parse_eve_file(DEMO_ANALYSIS / "suricata" / "eve.json")
+    rng = random.Random(7)
+    for events in eve.events.values():
+        rng.shuffle(events)
+        for ev in events:
+            ev["flow_id"] = rng.randrange(1 << 50)  # Suricata seeds flow ids randomly per run
+    again = normalize(parse_zeek_directory(DEMO_ANALYSIS / "zeek"), eve, demo_context)
+    strip = lambda e: _json.dumps({**e.model_dump(), "source_record_id": None}, sort_keys=True)  # noqa: E731
+    assert [strip(e) for e in again.evidence if e.source.value == "suricata"] == [strip(e) for e in normalized.evidence if e.source.value == "suricata"]

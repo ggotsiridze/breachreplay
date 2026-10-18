@@ -137,3 +137,12 @@ def test_eve_missing_file(tmp_path: Path):
 def test_eve_timestamp_formats():
     assert parse_eve_timestamp("2026-03-14T10:31:08.120000+0000") == parse_eve_timestamp("2026-03-14T10:31:08.120000+00:00")
     assert round(parse_eve_timestamp("2026-03-14T10:31:08Z")) == 1773484268
+
+
+def test_eve_flow_records_use_flow_start_time():
+    line = (
+        '{"event_type": "flow", "timestamp": "2026-03-14T10:32:50.008999+0000", "src_ip": "10.0.0.1", '
+        '"flow": {"start": "2026-03-14T10:31:20.000000+0000", "end": "2026-03-14T10:31:20.180000+0000"}}'
+    )
+    flow = parse_eve_lines([line]).get("flow")[0]
+    assert flow["_ts"] == parse_eve_timestamp("2026-03-14T10:31:20.000000+0000")
