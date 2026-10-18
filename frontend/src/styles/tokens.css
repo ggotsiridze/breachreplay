@@ -1,0 +1,45 @@
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #06080c;
+  --bg-2: #0a0e15;
+  --panel: rgba(13, 18, 27, 0.86);
+  --panel-solid: #0d121b;
+  --panel-2: #111824;
+  --raise: #151d2b;
+  --line: rgba(148, 163, 184, 0.12);
+  --line-2: rgba(148, 163, 184, 0.2);
+  --line-3: rgba(148, 163, 184, 0.32);
+
+  /* Text */
+  --text: #e8eef7;
+  --text-2: #b4c0d1;
+  --muted: #7d8aa0;
+  --faint: #536077;
+
+  /* Signal colours */
+  --c-cyan: #4cc9f0;
+  --c-blue: #5b8cff;
+  --c-amber: #f5a524;
+  --c-red: #ff4d5e;
+  --c-red-deep: #e5364b;
+  --c-green: #2ee59d;
+  --c-gold: #f3c969;
+  --c-violet: #a78bfa;
+  --c-slate: #8b98ab;
+
+  --glow-red: 0 0 0 1px rgba(255, 77, 94, 0.55), 0 0 28px rgba(255, 77, 94, 0.35);
+  --glow-amber: 0 0 0 1px rgba(245, 165, 36, 0.5), 0 0 22px rgba(245, 165, 36, 0.25);
+  --glow-green: 0 0 0 1px rgba(46, 229, 157, 0.55), 0 0 26px rgba(46, 229, 157, 0.28);
+  --glow-cyan: 0 0 0 1px rgba(76, 201, 240, 0.5), 0 0 22px rgba(76, 201, 240, 0.25);
+
+  --font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --r-sm: 6px;
+  --r: 10px;
+  --r-lg: 14px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --side-w: 400px;
+}
