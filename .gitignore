@@ -27,7 +27,6 @@ blob-report/
 .env
 .env.*
 !.env.example
-.claude/settings.local.json
 .DS_Store
 *.swp
 
