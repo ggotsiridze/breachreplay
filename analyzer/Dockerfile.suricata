@@ -1,0 +1,27 @@
+# BreachReplay Suricata analyzer worker.
+# Runs Suricata offline (pcap file mode) and writes EVE JSON to the workspace.
+ARG SURICATA_IMAGE=jasonish/suricata:7.0.10
+FROM ${SURICATA_IMAGE}
+
+USER root
+RUN groupadd --gid 10001 breachreplay \
+ && useradd --uid 10001 --gid 10001 --no-create-home --shell /sbin/nologin breachreplay \
+ && mkdir -p /workspaces /opt/breachreplay/app/analyzers /opt/breachreplay/rules \
+ && chown 10001:10001 /workspaces && chmod 0770 /workspaces \
+ && chmod 0755 /etc/suricata && find /etc/suricata -type f -exec chmod 0644 {} +
+
+COPY backend/app/__init__.py /opt/breachreplay/app/
+COPY backend/app/analyzers/__init__.py backend/app/analyzers/process.py backend/app/analyzers/zeek.py \
+     backend/app/analyzers/suricata.py backend/app/analyzers/worker.py /opt/breachreplay/app/analyzers/
+COPY demo/rules/ /opt/breachreplay/rules/
+
+ENV PYTHONPATH=/opt/breachreplay \
+    PYTHONDONTWRITEBYTECODE=1 \
+    SURICATA_RULES_PATH=/opt/breachreplay/rules/breachreplay-demo.rules \
+    WORKSPACE_ROOT=/workspaces
+
+USER 10001:10001
+EXPOSE 8700
+HEALTHCHECK --interval=10s --timeout=4s --start-period=10s --retries=5 \
+  CMD ["python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8700/health', timeout=3)"]
+ENTRYPOINT ["python3", "-m", "app.analyzers.worker", "--tool", "suricata"]

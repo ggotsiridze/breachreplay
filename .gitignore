@@ -1,0 +1,46 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+coverage.xml
+.coverage
+htmlcov/
+*.egg-info/
+
+# --- Node ---
+node_modules/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# --- Playwright ---
+playwright-report/
+test-results/
+blob-report/
+
+# --- Environment / local tooling ---
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.DS_Store
+*.swp
+
+# --- Capture / evidence data: never commit ---
+*.pcap
+*.pcapng
+*.cap
+analysis-output/
+uploads/
+tmp/
+data/
+workspaces/
+
+# The demo capture is generated deterministically by scripts/generate_demo_pcap.py
+demo/generated/*
+!demo/generated/.gitkeep

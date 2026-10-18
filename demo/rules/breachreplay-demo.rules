@@ -1,0 +1,21 @@
+# BreachReplay project-local Suricata rules.
+#
+# These rules are SAFE: they match harmless plain-text markers embedded in the
+# synthetic demo capture (scripts/generate_demo_pcap.py) plus a few generic,
+# behaviour-based detections (admin-share access, internal SMB sweep).
+# They are not production threat-intelligence signatures.
+# SID range 9100000-9100999 is reserved for this project.
+
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"BREACHREPLAY DEMO initial-access marker in inbound web request"; flow:established,to_server; http.uri; content:"BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS"; classtype:web-application-attack; sid:9100001; rev:1; metadata:breachreplay demo, tactic initial-access;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"BREACHREPLAY DEMO beacon marker in outbound web request"; flow:established,to_server; http.uri; content:"BREACHREPLAY-DEMO-MARKER-BEACON"; classtype:command-and-control; sid:9100002; rev:1; metadata:breachreplay demo, tactic command-and-control;)
+
+alert tcp $HOME_NET any -> $HOME_NET 445 (msg:"BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)"; flow:to_server; flags:S; detection_filter:track by_src, count 3, seconds 15; classtype:network-scan; sid:9100003; rev:1; metadata:breachreplay generic, tactic discovery;)
+
+alert tcp $HOME_NET any -> $HOME_NET 445 (msg:"BREACHREPLAY SMB tree connect to ADMIN$ administrative share"; flow:established,to_server; content:"|fe|SMB"; content:"|41 00 44 00 4d 00 49 00 4e 00 24 00|"; distance:0; classtype:attempted-admin; sid:9100004; rev:1; metadata:breachreplay generic, tactic lateral-movement;)
+
+alert tcp $HOME_NET any -> $HOME_NET 445 (msg:"BREACHREPLAY DEMO lateral-movement marker written over SMB"; flow:established,to_server; content:"BREACHREPLAY-DEMO-MARKER-LATERAL"; classtype:targeted-activity; sid:9100005; rev:1; metadata:breachreplay demo, tactic lateral-movement;)
+
+alert tcp $HOME_NET any -> $HOME_NET 5432 (msg:"BREACHREPLAY DEMO crown-jewel database query marker"; flow:established,to_server; content:"BREACHREPLAY-DEMO-MARKER-CROWN-JEWEL"; classtype:policy-violation; sid:9100006; rev:1; metadata:breachreplay demo, tactic collection;)
+
+alert tls $HOME_NET any -> $EXTERNAL_NET any (msg:"BREACHREPLAY DEMO TLS session to demo exfiltration endpoint"; flow:established,to_server; tls.sni; content:"sync-drop.demo.example"; classtype:policy-violation; sid:9100007; rev:1; metadata:breachreplay demo, tactic exfiltration;)

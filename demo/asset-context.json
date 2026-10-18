@@ -1,0 +1,45 @@
+{
+  "description": "Analyst-supplied asset context for the synthetic demo environment. Crown jewels are business decisions, so BreachReplay takes them from context rather than guessing.",
+  "crown_jewels": [
+    {
+      "ip": "10.20.3.50",
+      "reason": "Customer database (designated crown jewel in asset context)"
+    }
+  ],
+  "assets": [
+    {
+      "ip": "10.20.1.10",
+      "role": "Public web server",
+      "asset_type": "SERVER",
+      "labels": [
+        "dmz",
+        "internet-facing"
+      ]
+    },
+    {
+      "ip": "10.20.2.33",
+      "role": "Finance workstation",
+      "asset_type": "WORKSTATION",
+      "labels": [
+        "user-segment"
+      ]
+    },
+    {
+      "ip": "10.20.3.50",
+      "role": "Customer database",
+      "asset_type": "DATABASE",
+      "labels": [
+        "data-segment"
+      ]
+    },
+    {
+      "ip": "10.20.0.2",
+      "role": "Internal DNS resolver",
+      "asset_type": "INFRASTRUCTURE",
+      "labels": [
+        "core"
+      ],
+      "hostname": "dns-01.corp.example"
+    }
+  ]
+}
