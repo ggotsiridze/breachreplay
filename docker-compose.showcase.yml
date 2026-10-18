@@ -1,0 +1,63 @@
+# BreachReplay SHOWCASE mode: serves the precomputed, sanitized synthetic
+# incident from showcase/showcase-incident.json. No analyzers are started.
+#   docker compose -f docker-compose.showcase.yml up -d --build
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:-python:3.12-slim}
+      secrets:
+        - extra_ca
+    image: breachreplay/backend:latest
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      SHOWCASE_MODE: "true"
+      PUBLIC_MODE: "true"
+      WORKSPACE_ROOT: /tmp/workspaces
+    networks:
+      - web
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:-node:22-alpine}
+        NGINX_IMAGE: ${NGINX_IMAGE:-nginx:1.27-alpine}
+      secrets:
+        - extra_ca
+    image: breachreplay/frontend:latest
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    networks:
+      - web
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  web: {}
+
+secrets:
+  extra_ca:
+    file: ${EXTRA_CA_CERT:-./.empty-ca.pem}

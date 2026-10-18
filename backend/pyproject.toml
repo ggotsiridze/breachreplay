@@ -1,0 +1,28 @@
+[project]
+name = "breachreplay-backend"
+version = "1.0.0"
+description = "BreachReplay analysis API"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 160
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003", "B008", "E501", "SIM113", "S108"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "B"]
+# Shipped into the analyzer containers, whose system Python is 3.9.
+"app/analyzers/process.py" = ["UP"]
+"app/analyzers/zeek.py" = ["UP"]
+"app/analyzers/suricata.py" = ["UP"]
+"app/analyzers/worker.py" = ["UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = ["ignore::DeprecationWarning:fastapi.testclient", "ignore:Using `httpx` with `starlette.testclient`"]
+markers = ["analyzers: requires real Zeek and Suricata (analyzer containers or local binaries)"]

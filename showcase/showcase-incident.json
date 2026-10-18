@@ -1,0 +1,6144 @@
+{
+ "evidence": [
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00001",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "web-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49200,
+   "source_record_id": "562951287164446",
+   "summary": "Suricata DNS query web-01.corp.example",
+   "timestamp": 1773484202.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00001",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 95,
+    "bytes_toserver": 79,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49200,
+   "source_record_id": "562951287164446",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484202.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00001",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 37,
+    "orig_pkts": 1,
+    "resp_bytes": 53,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49200,
+   "source_record_id": "CJKFoj4bpHEhTeaRoj",
+   "summary": "UDP WS-01 \u2192 DNS-01:53 (dns) \u00b7 37 B sent / 53 B received \u00b7 completed normally",
+   "timestamp": 1773484202.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00001",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.10"
+    ],
+    "qtype": "A",
+    "query": "web-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49200,
+   "source_record_id": "CJKFoj4bpHEhTeaRoj",
+   "summary": "DNS A web-01.corp.example \u2192 10.x.x.10",
+   "timestamp": 1773484202.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00002",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "web-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49200,
+   "source_record_id": "562951287164446",
+   "summary": "Suricata DNS answer web-01.corp.example",
+   "timestamp": 1773484202.0015
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00002",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 363,
+    "bytes_toserver": 443,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49210,
+   "source_record_id": "844428397708864",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484203.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00002",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 119,
+    "orig_pkts": 6,
+    "resp_bytes": 147,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49210,
+   "source_record_id": "CRdT6w4PA64qWKmBk3",
+   "summary": "TCP WS-01 \u2192 WEB-01:80 (http) \u00b7 119 B sent / 147 B received \u00b7 completed normally",
+   "timestamp": 1773484203.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00001",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49210,
+   "source_record_id": "CRdT6w4PA64qWKmBk3",
+   "summary": "HTTP GET web-01.corp.example/ \u2192 200",
+   "timestamp": 1773484203.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00001",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 44,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49210,
+   "source_record_id": "FbjKn61rQrjT2x9pTj",
+   "summary": "File over HTTP: unnamed (text/html, 44 B, served by responder)",
+   "timestamp": 1773484203.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00001",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49210,
+   "source_record_id": "844428397708864",
+   "summary": "Suricata HTTP GET /",
+   "timestamp": 1773484203.006
+  },
+  {
+   "destination_asset_id": "asset-ws-01",
+   "destination_ip": "10.x.x.21",
+   "destination_port": 49210,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00001",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/",
+    "size": 44,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "844428397708864",
+   "summary": "Suricata file / (44 bytes)",
+   "timestamp": 1773484203.007999
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00003",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "web-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49201,
+   "source_record_id": "1303062931005756",
+   "summary": "Suricata DNS query web-01.corp.example",
+   "timestamp": 1773484204.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00003",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 95,
+    "bytes_toserver": 79,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49201,
+   "source_record_id": "1303062931005756",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484204.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00003",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 37,
+    "orig_pkts": 1,
+    "resp_bytes": 53,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49201,
+   "source_record_id": "Cj5C653qaTXsxKtqD2",
+   "summary": "UDP WS-02 \u2192 DNS-01:53 (dns) \u00b7 37 B sent / 53 B received \u00b7 completed normally",
+   "timestamp": 1773484204.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00002",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.10"
+    ],
+    "qtype": "A",
+    "query": "web-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49201,
+   "source_record_id": "Cj5C653qaTXsxKtqD2",
+   "summary": "DNS A web-01.corp.example \u2192 10.x.x.10",
+   "timestamp": 1773484204.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00004",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "web-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49201,
+   "source_record_id": "1303062931005756",
+   "summary": "Suricata DNS answer web-01.corp.example",
+   "timestamp": 1773484204.5015
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00004",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 363,
+    "bytes_toserver": 452,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49211,
+   "source_record_id": "1407376303175446",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484205.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00004",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 128,
+    "orig_pkts": 6,
+    "resp_bytes": 147,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49211,
+   "source_record_id": "CJioLj2aEkGc9R3T0b",
+   "summary": "TCP WS-02 \u2192 WEB-01:80 (http) \u00b7 128 B sent / 147 B received \u00b7 completed normally",
+   "timestamp": 1773484205.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00002",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/dashboard"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49211,
+   "source_record_id": "CJioLj2aEkGc9R3T0b",
+   "summary": "HTTP GET web-01.corp.example/dashboard \u2192 200",
+   "timestamp": 1773484205.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00002",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 44,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49211,
+   "source_record_id": "FLNiRP3mIkFGOYbiTa",
+   "summary": "File over HTTP: unnamed (text/html, 44 B, served by responder)",
+   "timestamp": 1773484205.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00002",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/dashboard"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49211,
+   "source_record_id": "1407376303175446",
+   "summary": "Suricata HTTP GET /dashboard",
+   "timestamp": 1773484205.006
+  },
+  {
+   "destination_asset_id": "asset-ws-02",
+   "destination_ip": "10.x.x.22",
+   "destination_port": 49211,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00002",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/dashboard",
+    "size": 44,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1407376303175446",
+   "summary": "Suricata file /dashboard (44 bytes)",
+   "timestamp": 1773484205.007999
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00005",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49202,
+   "source_record_id": "1970326525824507",
+   "summary": "Suricata DNS query db-01.corp.example",
+   "timestamp": 1773484207.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00005",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49202,
+   "source_record_id": "1970326525824507",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484207.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00005",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49202,
+   "source_record_id": "CcvuMe3KIDgdxGsNCd",
+   "summary": "UDP WS-01 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484207.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00003",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.50"
+    ],
+    "qtype": "A",
+    "query": "db-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49202,
+   "source_record_id": "CcvuMe3KIDgdxGsNCd",
+   "summary": "DNS A db-01.corp.example \u2192 10.x.x.50",
+   "timestamp": 1773484207.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00006",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49202,
+   "source_record_id": "1970326525824507",
+   "summary": "Suricata DNS answer db-01.corp.example",
+   "timestamp": 1773484207.0015
+  },
+  {
+   "destination_asset_id": "asset-db-01",
+   "destination_ip": "10.x.x.50",
+   "destination_port": 5432,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00006",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 405,
+    "bytes_toserver": 522,
+    "pkts_toclient": 6,
+    "pkts_toserver": 8,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "failed",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49214,
+   "source_record_id": "2816212454",
+   "summary": "Suricata flow failed: 8/6 packets, state closed",
+   "timestamp": 1773484208.0
+  },
+  {
+   "destination_asset_id": "asset-db-01",
+   "destination_ip": "10.x.x.50",
+   "destination_port": 5432,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00006",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.012,
+    "history": "ShADadFf",
+    "orig_bytes": 90,
+    "orig_pkts": 8,
+    "resp_bytes": 81,
+    "resp_pkts": 6
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49214,
+   "source_record_id": "CpuDPN1X7c0rKhM3Ik",
+   "summary": "TCP WS-01 \u2192 DB-01:5432 \u00b7 90 B sent / 81 B received \u00b7 completed normally",
+   "timestamp": 1773484208.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00007",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "updates.vendor.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49203,
+   "source_record_id": "281474995815287",
+   "summary": "Suricata DNS query updates.vendor.example",
+   "timestamp": 1773484209.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00007",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 98,
+    "bytes_toserver": 82,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49203,
+   "source_record_id": "281474995815287",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484209.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00007",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 40,
+    "orig_pkts": 1,
+    "resp_bytes": 56,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49203,
+   "source_record_id": "CRmE1y3QIW6Zmd10g1",
+   "summary": "UDP WS-03 \u2192 DNS-01:53 (dns) \u00b7 40 B sent / 56 B received \u00b7 completed normally",
+   "timestamp": 1773484209.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00004",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "198.51.100.20"
+    ],
+    "qtype": "A",
+    "query": "updates.vendor.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49203,
+   "source_record_id": "CRmE1y3QIW6Zmd10g1",
+   "summary": "DNS A updates.vendor.example \u2192 198.51.100.20",
+   "timestamp": 1773484209.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00008",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "updates.vendor.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49203,
+   "source_record_id": "281474995815287",
+   "summary": "Suricata DNS answer updates.vendor.example",
+   "timestamp": 1773484209.0015
+  },
+  {
+   "destination_asset_id": "asset-198-51-100-20",
+   "destination_ip": "198.51.100.20",
+   "destination_port": 443,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00008",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 4901,
+    "bytes_toserver": 1289,
+    "pkts_toclient": 11,
+    "pkts_toserver": 10,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "tls",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49215,
+   "source_record_id": "562952540762137",
+   "summary": "Suricata flow tls: 10/11 packets, state closed",
+   "timestamp": 1773484210.0
+  },
+  {
+   "destination_asset_id": "asset-198-51-100-20",
+   "destination_ip": "198.51.100.20",
+   "destination_port": 443,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00008",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.285,
+    "history": "ShADadFf",
+    "orig_bytes": 749,
+    "orig_pkts": 10,
+    "resp_bytes": 4307,
+    "resp_pkts": 11
+   },
+   "protocol": "tcp",
+   "service": "ssl",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49215,
+   "source_record_id": "CIrGew2SfruONAsgA8",
+   "summary": "TCP WS-03 \u2192 198.51.100.20:443 (ssl) \u00b7 749 B sent / 4.2 KB received \u00b7 completed normally",
+   "timestamp": 1773484210.0
+  },
+  {
+   "destination_asset_id": "asset-198-51-100-20",
+   "destination_ip": "198.51.100.20",
+   "destination_port": 443,
+   "event_type": "tls_session",
+   "id": "ev-zeek-ssl-00001",
+   "log_type": "ssl",
+   "metadata": {
+    "cipher": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "established": true,
+    "server_name": "updates.vendor.example",
+    "version": "TLSv12"
+   },
+   "protocol": "tcp",
+   "service": "ssl",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49215,
+   "source_record_id": "CIrGew2SfruONAsgA8",
+   "summary": "TLS TLSv12 session to updates.vendor.example (established)",
+   "timestamp": 1773484210.045
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00009",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "ws-03.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49204,
+   "source_record_id": "1125900873174588",
+   "summary": "Suricata DNS query ws-03.corp.example",
+   "timestamp": 1773484212.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00009",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49204,
+   "source_record_id": "1125900873174588",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484212.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00009",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49204,
+   "source_record_id": "CvlFWu15VAZDKRaYQa",
+   "summary": "UDP WS-02 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484212.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00005",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.33"
+    ],
+    "qtype": "A",
+    "query": "ws-03.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49204,
+   "source_record_id": "CvlFWu15VAZDKRaYQa",
+   "summary": "DNS A ws-03.corp.example \u2192 10.x.x.33",
+   "timestamp": 1773484212.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00010",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "ws-03.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49204,
+   "source_record_id": "1125900873174588",
+   "summary": "Suricata DNS answer ws-03.corp.example",
+   "timestamp": 1773484212.0015
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00011",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49205,
+   "source_record_id": "1970325423241067",
+   "summary": "Suricata DNS query db-01.corp.example",
+   "timestamp": 1773484215.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00010",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49205,
+   "source_record_id": "1970325423241067",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484215.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00010",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49205,
+   "source_record_id": "CrRUxC4zr3ylWDKTJb",
+   "summary": "UDP WEB-01 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484215.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00006",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.50"
+    ],
+    "qtype": "A",
+    "query": "db-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49205,
+   "source_record_id": "CrRUxC4zr3ylWDKTJb",
+   "summary": "DNS A db-01.corp.example \u2192 10.x.x.50",
+   "timestamp": 1773484215.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00012",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49205,
+   "source_record_id": "1970325423241067",
+   "summary": "Suricata DNS answer db-01.corp.example",
+   "timestamp": 1773484215.0015
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00011",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 363,
+    "bytes_toserver": 457,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49212,
+   "source_record_id": "562952275915947",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484218.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00011",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 133,
+    "orig_pkts": 6,
+    "resp_bytes": 147,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49212,
+   "source_record_id": "CLbz2a22FwntDAwCj6",
+   "summary": "TCP WS-01 \u2192 WEB-01:80 (http) \u00b7 133 B sent / 147 B received \u00b7 completed normally",
+   "timestamp": 1773484218.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00003",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/reports/weekly"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49212,
+   "source_record_id": "CLbz2a22FwntDAwCj6",
+   "summary": "HTTP GET web-01.corp.example/reports/weekly \u2192 200",
+   "timestamp": 1773484218.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00003",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 44,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49212,
+   "source_record_id": "FH5FSi3DOq4evDq6Ve",
+   "summary": "File over HTTP: unnamed (text/html, 44 B, served by responder)",
+   "timestamp": 1773484218.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00003",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/reports/weekly"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49212,
+   "source_record_id": "562952275915947",
+   "summary": "Suricata HTTP GET /reports/weekly",
+   "timestamp": 1773484218.006
+  },
+  {
+   "destination_asset_id": "asset-ws-01",
+   "destination_ip": "10.x.x.21",
+   "destination_port": 49212,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00003",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/reports/weekly",
+    "size": 44,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "562952275915947",
+   "summary": "Suricata file /reports/weekly (44 bytes)",
+   "timestamp": 1773484218.007999
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00013",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "ws-03.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49206,
+   "source_record_id": "1125902561856248",
+   "summary": "Suricata DNS query ws-03.corp.example",
+   "timestamp": 1773484220.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00012",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49206,
+   "source_record_id": "1125902561856248",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484220.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00012",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49206,
+   "source_record_id": "C1O2lF3JKzfTRwEgg7",
+   "summary": "UDP WS-03 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484220.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00007",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.33"
+    ],
+    "qtype": "A",
+    "query": "ws-03.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49206,
+   "source_record_id": "C1O2lF3JKzfTRwEgg7",
+   "summary": "DNS A ws-03.corp.example \u2192 10.x.x.33",
+   "timestamp": 1773484220.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00014",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "ws-03.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49206,
+   "source_record_id": "1125902561856248",
+   "summary": "Suricata DNS answer ws-03.corp.example",
+   "timestamp": 1773484220.0015
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00015",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "ws-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49207,
+   "source_record_id": "3035322681",
+   "summary": "Suricata DNS query ws-01.corp.example",
+   "timestamp": 1773484224.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00013",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49207,
+   "source_record_id": "3035322681",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484224.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00013",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49207,
+   "source_record_id": "C3g5L02aLyeTqCRyy4",
+   "summary": "UDP WS-01 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484224.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00008",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.21"
+    ],
+    "qtype": "A",
+    "query": "ws-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49207,
+   "source_record_id": "C3g5L02aLyeTqCRyy4",
+   "summary": "DNS A ws-01.corp.example \u2192 10.x.x.21",
+   "timestamp": 1773484224.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00016",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "ws-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49207,
+   "source_record_id": "3035322681",
+   "summary": "Suricata DNS answer ws-01.corp.example",
+   "timestamp": 1773484224.0015
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00017",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "ws-02.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49208,
+   "source_record_id": "562952162392364",
+   "summary": "Suricata DNS query ws-02.corp.example",
+   "timestamp": 1773484226.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00014",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49208,
+   "source_record_id": "562952162392364",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484226.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00014",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49208,
+   "source_record_id": "CPmPUl35feMRVPmyuc",
+   "summary": "UDP WS-02 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484226.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00009",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.22"
+    ],
+    "qtype": "A",
+    "query": "ws-02.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49208,
+   "source_record_id": "CPmPUl35feMRVPmyuc",
+   "summary": "DNS A ws-02.corp.example \u2192 10.x.x.22",
+   "timestamp": 1773484226.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00018",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "ws-02.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49208,
+   "source_record_id": "562952162392364",
+   "summary": "Suricata DNS answer ws-02.corp.example",
+   "timestamp": 1773484226.0015
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00019",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "intranet-wiki.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49209,
+   "source_record_id": "1125903511927979",
+   "summary": "Suricata DNS query intranet-wiki.corp.example",
+   "timestamp": 1773484228.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00015",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 86,
+    "bytes_toserver": 86,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49209,
+   "source_record_id": "1125903511927979",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484228.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00015",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 44,
+    "orig_pkts": 1,
+    "resp_bytes": 44,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49209,
+   "source_record_id": "CTkV8q1WL11MgsqOJ2",
+   "summary": "UDP WS-01 \u2192 DNS-01:53 (dns) \u00b7 44 B sent / 44 B received \u00b7 completed normally",
+   "timestamp": 1773484228.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00010",
+   "log_type": "dns",
+   "metadata": {
+    "qtype": "A",
+    "query": "intranet-wiki.corp.example",
+    "rcode": "NXDOMAIN"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49209,
+   "source_record_id": "CTkV8q1WL11MgsqOJ2",
+   "summary": "DNS A intranet-wiki.corp.example \u2192 NXDOMAIN",
+   "timestamp": 1773484228.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00020",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NXDOMAIN",
+    "rrname": "intranet-wiki.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49209,
+   "source_record_id": "1125903511927979",
+   "summary": "Suricata DNS answer intranet-wiki.corp.example",
+   "timestamp": 1773484228.0015
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00016",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 363,
+    "bytes_toserver": 443,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49213,
+   "source_record_id": "3804253941",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484240.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00016",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 119,
+    "orig_pkts": 6,
+    "resp_bytes": 147,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49213,
+   "source_record_id": "CeVez8PlwuP4b3O6l",
+   "summary": "TCP WS-02 \u2192 WEB-01:80 (http) \u00b7 119 B sent / 147 B received \u00b7 completed normally",
+   "timestamp": 1773484240.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00004",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49213,
+   "source_record_id": "CeVez8PlwuP4b3O6l",
+   "summary": "HTTP GET web-01.corp.example/ \u2192 200",
+   "timestamp": 1773484240.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00004",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 44,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49213,
+   "source_record_id": "Fgveew4h7mnChcZRac",
+   "summary": "File over HTTP: unnamed (text/html, 44 B, served by responder)",
+   "timestamp": 1773484240.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00004",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49213,
+   "source_record_id": "3804253941",
+   "summary": "Suricata HTTP GET /",
+   "timestamp": 1773484240.006
+  },
+  {
+   "destination_asset_id": "asset-ws-02",
+   "destination_ip": "10.x.x.22",
+   "destination_port": 49213,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00004",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/",
+    "size": 44,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "3804253941",
+   "summary": "Suricata file / (44 bytes)",
+   "timestamp": 1773484240.007999
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00017",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 349,
+    "bytes_toserver": 443,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49216,
+   "source_record_id": "1125902501498338",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484260.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00017",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 119,
+    "orig_pkts": 6,
+    "resp_bytes": 133,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49216,
+   "source_record_id": "CHiAn92BWcOjoGjVNc",
+   "summary": "TCP 203.0.113.45 \u2192 WEB-01:80 (http) \u00b7 119 B sent / 133 B received \u00b7 completed normally",
+   "timestamp": 1773484260.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00005",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49216,
+   "source_record_id": "CHiAn92BWcOjoGjVNc",
+   "summary": "HTTP GET web-01.corp.example/ \u2192 200",
+   "timestamp": 1773484260.06
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00005",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 30,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49216,
+   "source_record_id": "FYkEik2Md4jTEnZI3k",
+   "summary": "File over HTTP: unnamed (text/html, 30 B, served by responder)",
+   "timestamp": 1773484260.1
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00005",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49216,
+   "source_record_id": "1125902501498338",
+   "summary": "Suricata HTTP GET /",
+   "timestamp": 1773484260.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 49216,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00005",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/",
+    "size": 30,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1125902501498338",
+   "summary": "Suricata file / (30 bytes)",
+   "timestamp": 1773484260.16
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00018",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 356,
+    "bytes_toserver": 448,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49217,
+   "source_record_id": "1584534147187870",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484261.5
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00018",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 124,
+    "orig_pkts": 6,
+    "resp_bytes": 140,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49217,
+   "source_record_id": "CXjSyg14t40dW6wYsk",
+   "summary": "TCP 203.0.113.45 \u2192 WEB-01:80 (http) \u00b7 124 B sent / 140 B received \u00b7 completed normally",
+   "timestamp": 1773484261.5
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00006",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 404,
+    "uri": "/admin"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49217,
+   "source_record_id": "CXjSyg14t40dW6wYsk",
+   "summary": "HTTP GET web-01.corp.example/admin \u2192 404",
+   "timestamp": 1773484261.56
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00006",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 30,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49217,
+   "source_record_id": "FlOfQM3rYVtbeuR1r8",
+   "summary": "File over HTTP: unnamed (text/html, 30 B, served by responder)",
+   "timestamp": 1773484261.6
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00006",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 404,
+    "url": "/admin"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49217,
+   "source_record_id": "1584534147187870",
+   "summary": "Suricata HTTP GET /admin",
+   "timestamp": 1773484261.62
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 49217,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00006",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/admin",
+    "size": 30,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1584534147187870",
+   "summary": "Suricata file /admin (30 bytes)",
+   "timestamp": 1773484261.66
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00019",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 349,
+    "bytes_toserver": 448,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49218,
+   "source_record_id": "1970328817104657",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484263.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00019",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 124,
+    "orig_pkts": 6,
+    "resp_bytes": 133,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49218,
+   "source_record_id": "CdlMKC4Zj8DkpMbdLh",
+   "summary": "TCP 203.0.113.45 \u2192 WEB-01:80 (http) \u00b7 124 B sent / 133 B received \u00b7 completed normally",
+   "timestamp": 1773484263.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00007",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/login"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49218,
+   "source_record_id": "CdlMKC4Zj8DkpMbdLh",
+   "summary": "HTTP GET web-01.corp.example/login \u2192 200",
+   "timestamp": 1773484263.06
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00007",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 30,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49218,
+   "source_record_id": "F9OqYP14JRNVlnIHG6",
+   "summary": "File over HTTP: unnamed (text/html, 30 B, served by responder)",
+   "timestamp": 1773484263.1
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00007",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/login"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49218,
+   "source_record_id": "1970328817104657",
+   "summary": "Suricata HTTP GET /login",
+   "timestamp": 1773484263.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 49218,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00007",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/login",
+    "size": 30,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1970328817104657",
+   "summary": "Suricata file /login (30 bytes)",
+   "timestamp": 1773484263.16
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00020",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 349,
+    "bytes_toserver": 453,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49219,
+   "source_record_id": "14568544742051",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484264.2
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00020",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 129,
+    "orig_pkts": 6,
+    "resp_bytes": 133,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49219,
+   "source_record_id": "CNG7101ClFJPhG5ukb",
+   "summary": "TCP 203.0.113.45 \u2192 WEB-01:80 (http) \u00b7 129 B sent / 133 B received \u00b7 completed normally",
+   "timestamp": 1773484264.2
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00008",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/upload.php"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49219,
+   "source_record_id": "CNG7101ClFJPhG5ukb",
+   "summary": "HTTP GET web-01.corp.example/upload.php \u2192 200",
+   "timestamp": 1773484264.26
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00008",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 30,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49219,
+   "source_record_id": "FFCEOGxx3cVriGs2",
+   "summary": "File over HTTP: unnamed (text/html, 30 B, served by responder)",
+   "timestamp": 1773484264.3
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00008",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/upload.php"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49219,
+   "source_record_id": "14568544742051",
+   "summary": "Suricata HTTP GET /upload.php",
+   "timestamp": 1773484264.32
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 49219,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00008",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/upload.php",
+    "size": 30,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "14568544742051",
+   "summary": "Suricata file /upload.php (30 bytes)",
+   "timestamp": 1773484264.36
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00021",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 342,
+    "bytes_toserver": 865,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "1125903321904902",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484268.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00021",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 541,
+    "orig_pkts": 6,
+    "resp_bytes": 126,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "Ch4KOH3GbJxkcDViU9",
+   "summary": "TCP 203.0.113.45 \u2192 WEB-01:80 (http) \u00b7 541 B sent / 126 B received \u00b7 completed normally",
+   "timestamp": 1773484268.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00009",
+   "log_type": "files",
+   "metadata": {
+    "filename": "breachreplay-demo.txt",
+    "is_orig": true,
+    "mime_type": "text/plain",
+    "seen_bytes": 104,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "F51y7C1VEW2CNcPgCk",
+   "summary": "File over HTTP: breachreplay-demo.txt (text/plain, 104 B, uploaded by originator)",
+   "timestamp": 1773484268.06
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00009",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "POST",
+    "status_code": 200,
+    "uri": "/upload.php?demo=BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "Ch4KOH3GbJxkcDViU9",
+   "summary": "HTTP POST web-01.corp.example/upload.php?demo=BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS \u2192 200",
+   "timestamp": 1773484268.06
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00010",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/plain",
+    "seen_bytes": 22,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "FWYJX73ltxnoqYKATh",
+   "summary": "File over HTTP: unnamed (text/plain, 22 B, served by responder)",
+   "timestamp": 1773484268.1
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00001",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "http",
+    "category": "Web Application Attack",
+    "http_url": "/upload.php?demo=BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO initial-access marker in inbound web request",
+    "signature_id": 9100001
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "1125903321904902",
+   "summary": "Suricata alert [9100001] BREACHREPLAY DEMO initial-access marker in inbound web request (severity 1)",
+   "timestamp": 1773484268.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00009",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "breachreplay-demo.txt",
+    "size": 104,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "1125903321904902",
+   "summary": "Suricata file breachreplay-demo.txt (104 bytes)",
+   "timestamp": 1773484268.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00009",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "POST",
+    "status": 200,
+    "url": "/upload.php?demo=BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 49220,
+   "source_record_id": "1125903321904902",
+   "summary": "Suricata HTTP POST /upload.php?demo=BREACHREPLAY-DEMO-MARKER-INITIAL-ACCESS",
+   "timestamp": 1773484268.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 49220,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00010",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/upload.php",
+    "size": 22,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1125903321904902",
+   "summary": "Suricata file /upload.php (22 bytes)",
+   "timestamp": 1773484268.16
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00022",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 323,
+    "bytes_toserver": 528,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "68119638",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484280.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00022",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 204,
+    "orig_pkts": 6,
+    "resp_bytes": 107,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "CGmj3N1jKPfkip4ynf",
+   "summary": "TCP WEB-01 \u2192 203.0.113.45:8080 (http) \u00b7 204 B sent / 107 B received \u00b7 completed normally",
+   "timestamp": 1773484280.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00010",
+   "log_type": "http",
+   "metadata": {
+    "host": "203.0.113.45:8080",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/beacon?id=web-01&seq=0&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "CGmj3N1jKPfkip4ynf",
+   "summary": "HTTP GET 203.0.113.45:8080/beacon?id=web-01&seq=0&tag=BREACHREPLAY-DEMO-MARKER-BEACON \u2192 200",
+   "timestamp": 1773484280.06
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00011",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "seen_bytes": 4,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "FYhuCo3O3U3VM7pAsd",
+   "summary": "File over HTTP: unnamed (unknown type, 4 B, served by responder)",
+   "timestamp": 1773484280.1
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00002",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "http",
+    "category": "Malware Command and Control Activity Detected",
+    "http_url": "/beacon?id=web-01&seq=0&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": 9100002
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "68119638",
+   "summary": "Suricata alert [9100002] BREACHREPLAY DEMO beacon marker in outbound web request (severity 1)",
+   "timestamp": 1773484280.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00010",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "203.0.113.45",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/beacon?id=web-01&seq=0&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49221,
+   "source_record_id": "68119638",
+   "summary": "Suricata HTTP GET /beacon?id=web-01&seq=0&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+   "timestamp": 1773484280.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 49221,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00011",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/beacon",
+    "size": 4,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 8080,
+   "source_record_id": "68119638",
+   "summary": "Suricata file /beacon (4 bytes)",
+   "timestamp": 1773484280.16
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00023",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 323,
+    "bytes_toserver": 528,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "1688850421930422",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484286.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00023",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 204,
+    "orig_pkts": 6,
+    "resp_bytes": 107,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "CfgTyc42O4GfnMNFbg",
+   "summary": "TCP WEB-01 \u2192 203.0.113.45:8080 (http) \u00b7 204 B sent / 107 B received \u00b7 completed normally",
+   "timestamp": 1773484286.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00011",
+   "log_type": "http",
+   "metadata": {
+    "host": "203.0.113.45:8080",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/beacon?id=web-01&seq=1&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "CfgTyc42O4GfnMNFbg",
+   "summary": "HTTP GET 203.0.113.45:8080/beacon?id=web-01&seq=1&tag=BREACHREPLAY-DEMO-MARKER-BEACON \u2192 200",
+   "timestamp": 1773484286.06
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00012",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "seen_bytes": 4,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "F1Awtc2D88TLd4rKmb",
+   "summary": "File over HTTP: unnamed (unknown type, 4 B, served by responder)",
+   "timestamp": 1773484286.1
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00003",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "http",
+    "category": "Malware Command and Control Activity Detected",
+    "http_url": "/beacon?id=web-01&seq=1&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": 9100002
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "1688850421930422",
+   "summary": "Suricata alert [9100002] BREACHREPLAY DEMO beacon marker in outbound web request (severity 1)",
+   "timestamp": 1773484286.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00011",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "203.0.113.45",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/beacon?id=web-01&seq=1&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49222,
+   "source_record_id": "1688850421930422",
+   "summary": "Suricata HTTP GET /beacon?id=web-01&seq=1&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+   "timestamp": 1773484286.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 49222,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00012",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/beacon",
+    "size": 4,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 8080,
+   "source_record_id": "1688850421930422",
+   "summary": "Suricata file /beacon (4 bytes)",
+   "timestamp": 1773484286.16
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00024",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 323,
+    "bytes_toserver": 528,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "1125901112243823",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484292.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00024",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.16,
+    "history": "ShADadFf",
+    "orig_bytes": 204,
+    "orig_pkts": 6,
+    "resp_bytes": 107,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "CdCxD245E3Ww9z3PD1",
+   "summary": "TCP WEB-01 \u2192 203.0.113.45:8080 (http) \u00b7 204 B sent / 107 B received \u00b7 completed normally",
+   "timestamp": 1773484292.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00012",
+   "log_type": "http",
+   "metadata": {
+    "host": "203.0.113.45:8080",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/beacon?id=web-01&seq=2&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "CdCxD245E3Ww9z3PD1",
+   "summary": "HTTP GET 203.0.113.45:8080/beacon?id=web-01&seq=2&tag=BREACHREPLAY-DEMO-MARKER-BEACON \u2192 200",
+   "timestamp": 1773484292.06
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00013",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "seen_bytes": 4,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "FGfpa74J1vgYXsfO6a",
+   "summary": "File over HTTP: unnamed (unknown type, 4 B, served by responder)",
+   "timestamp": 1773484292.1
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00004",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "http",
+    "category": "Malware Command and Control Activity Detected",
+    "http_url": "/beacon?id=web-01&seq=2&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": 9100002
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "1125901112243823",
+   "summary": "Suricata alert [9100002] BREACHREPLAY DEMO beacon marker in outbound web request (severity 1)",
+   "timestamp": 1773484292.12
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 8080,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00012",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "203.0.113.45",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/beacon?id=web-01&seq=2&tag=BREACHREPLAY-DEMO-MARKER-BEACON"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49223,
+   "source_record_id": "1125901112243823",
+   "summary": "Suricata HTTP GET /beacon?id=web-01&seq=2&tag=BREACHREPLAY-DEMO-MARKER-BEACON",
+   "timestamp": 1773484292.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 49223,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00013",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/beacon",
+    "size": 4,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-203-0-113-45",
+   "source_ip": "203.0.113.45",
+   "source_port": 8080,
+   "source_record_id": "1125901112243823",
+   "summary": "Suricata file /beacon (4 bytes)",
+   "timestamp": 1773484292.16
+  },
+  {
+   "destination_asset_id": "asset-ws-01",
+   "destination_ip": "10.x.x.21",
+   "destination_port": 445,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00025",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 54,
+    "bytes_toserver": 54,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49224,
+   "source_record_id": "1688851189128932",
+   "summary": "Suricata flow tcp: 1/1 packets, state closed",
+   "timestamp": 1773484294.0
+  },
+  {
+   "destination_asset_id": "asset-ws-01",
+   "destination_ip": "10.x.x.21",
+   "destination_port": 445,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00025",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "REJ",
+    "duration_seconds": 0.001,
+    "history": "Sr",
+    "orig_bytes": 0,
+    "orig_pkts": 1,
+    "resp_bytes": 0,
+    "resp_pkts": 1
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49224,
+   "source_record_id": "CrzQvE4cPLMwmGckHd",
+   "summary": "TCP WEB-01 \u2192 WS-01:445 \u00b7 0 B sent / 0 B received \u00b7 rejected (reset)",
+   "timestamp": 1773484294.0
+  },
+  {
+   "destination_asset_id": "asset-ws-02",
+   "destination_ip": "10.x.x.22",
+   "destination_port": 445,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00026",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 54,
+    "bytes_toserver": 54,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49225,
+   "source_record_id": "1717989412051281",
+   "summary": "Suricata flow tcp: 1/1 packets, state closed",
+   "timestamp": 1773484294.4
+  },
+  {
+   "destination_asset_id": "asset-ws-02",
+   "destination_ip": "10.x.x.22",
+   "destination_port": 445,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00026",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "REJ",
+    "duration_seconds": 0.001,
+    "history": "Sr",
+    "orig_bytes": 0,
+    "orig_pkts": 1,
+    "resp_bytes": 0,
+    "resp_pkts": 1
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49225,
+   "source_record_id": "CVDWFp2jkrOa4MVVYa",
+   "summary": "TCP WEB-01 \u2192 WS-02:445 \u00b7 0 B sent / 0 B received \u00b7 rejected (reset)",
+   "timestamp": 1773484294.4
+  },
+  {
+   "destination_asset_id": "asset-10-20-2-34",
+   "destination_ip": "10.x.x.34",
+   "destination_port": 445,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00027",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 0,
+    "bytes_toserver": 108,
+    "pkts_toclient": 0,
+    "pkts_toserver": 2,
+    "state": "new"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49226,
+   "source_record_id": "1747127795528444",
+   "summary": "Suricata flow tcp: 2/0 packets, state new",
+   "timestamp": 1773484294.8
+  },
+  {
+   "destination_asset_id": "asset-10-20-2-34",
+   "destination_ip": "10.x.x.34",
+   "destination_port": 445,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00027",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "S0",
+    "duration_seconds": 0.501,
+    "history": "S",
+    "orig_bytes": 0,
+    "orig_pkts": 2,
+    "resp_bytes": 0,
+    "resp_pkts": 0
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49226,
+   "source_record_id": "C1qOam3FD6FDUEoyIg",
+   "summary": "TCP WEB-01 \u2192 10.x.x.34:445 \u00b7 0 B sent / 0 B received \u00b7 connection attempt, no reply",
+   "timestamp": 1773484294.8
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00005",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "category": "Detection of a Network Scan",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": 9100003
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49227,
+   "source_record_id": "1984897228669444",
+   "summary": "Suricata alert [9100003] BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445) (severity 3)",
+   "timestamp": 1773484295.2
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00028",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 108,
+    "bytes_toserver": 216,
+    "pkts_toclient": 2,
+    "pkts_toserver": 4,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49227,
+   "source_record_id": "1984897228669444",
+   "summary": "Suricata flow tcp: 4/2 packets, state closed",
+   "timestamp": 1773484295.2
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00028",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.004,
+    "history": "ShAFf",
+    "orig_bytes": 0,
+    "orig_pkts": 4,
+    "resp_bytes": 0,
+    "resp_pkts": 2
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49227,
+   "source_record_id": "CfLlSb2VOywdLVKjk5",
+   "summary": "TCP WEB-01 \u2192 WS-03:445 \u00b7 0 B sent / 0 B received \u00b7 completed normally",
+   "timestamp": 1773484295.2
+  },
+  {
+   "destination_asset_id": "asset-10-20-2-34",
+   "destination_ip": "10.x.x.34",
+   "destination_port": 445,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00006",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "category": "Detection of a Network Scan",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": 9100003
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49226,
+   "source_record_id": "1747127795528444",
+   "summary": "Suricata alert [9100003] BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445) (severity 3)",
+   "timestamp": 1773484295.301
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00007",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "category": "Detection of a Network Scan",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": 9100003
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata alert [9100003] BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445) (severity 3)",
+   "timestamp": 1773484302.0
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00029",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 1666,
+    "bytes_toserver": 3432,
+    "pkts_toclient": 16,
+    "pkts_toserver": 19,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata flow smb: 19/16 packets, state closed",
+   "timestamp": 1773484302.0
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00029",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 3.883,
+    "history": "ShADadFf",
+    "orig_bytes": 2406,
+    "orig_pkts": 19,
+    "resp_bytes": 802,
+    "resp_pkts": 16
+   },
+   "protocol": "tcp",
+   "service": "ntlm,smb",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "CIW0cd16EEeIr4o201",
+   "summary": "TCP WEB-01 \u2192 WS-03:445 (ntlm,smb) \u00b7 2.3 KB sent / 802 B received \u00b7 completed normally",
+   "timestamp": 1773484302.0
+  },
+  {
+   "destination_asset_id": null,
+   "destination_ip": null,
+   "destination_port": 445,
+   "event_type": "zeek_notice",
+   "id": "ev-zeek-notice-00001",
+   "log_type": "notice",
+   "metadata": {
+    "msg": "10.x.x.10 probed 3 internal hosts on 445/tcp",
+    "note": "BreachReplay::Internal_Port_Sweep"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": null,
+   "source_record_id": "",
+   "summary": "Zeek notice BreachReplay::Internal_Port_Sweep: 10.x.x.10 probed 3 internal hosts on 445/tcp",
+   "timestamp": 1773484302.0
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00001",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_NEGOTIATE_PROTOCOL",
+    "dialect": "2.10",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB NEGOTIATE_PROTOCOL \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484302.006
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "authentication",
+   "id": "ev-zeek-ntlm-00001",
+   "log_type": "ntlm",
+   "metadata": {
+    "domain": "CORP-DEMO",
+    "username": "svc-demo",
+    "workstation": "WEB-01"
+   },
+   "protocol": "tcp",
+   "service": "ntlm",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "CIW0cd16EEeIr4o201",
+   "summary": "NTLM authentication as CORP-DEMO\\svc-demo from workstation WEB-01",
+   "timestamp": 1773484302.157
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00002",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_SESSION_SETUP",
+    "dialect": "2.10",
+    "status": "STATUS_MORE_PROCESSING_REQUIRED"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB SESSION_SETUP \u2192 STATUS_MORE_PROCESSING_REQUIRED",
+   "timestamp": 1773484302.159999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00003",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_SESSION_SETUP",
+    "dialect": "2.10",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB SESSION_SETUP \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484302.313999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "zeek_notice",
+   "id": "ev-zeek-notice-00002",
+   "log_type": "notice",
+   "metadata": {
+    "msg": "SMB tree connect to administrative share \\\\10.x.x.33\\ADMIN$",
+    "note": "BreachReplay::Admin_Share_Access"
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "CIW0cd16EEeIr4o201",
+   "summary": "Zeek notice BreachReplay::Admin_Share_Access: SMB tree connect to administrative share \\\\10.x.x.33\\ADMIN$",
+   "timestamp": 1773484303.064999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "smb_share_access",
+   "id": "ev-zeek-smb-mapping-00001",
+   "log_type": "smb_mapping",
+   "metadata": {
+    "path": "\\\\10.x.x.33\\ADMIN$",
+    "share_type": "DISK"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "CIW0cd16EEeIr4o201",
+   "summary": "SMB tree connect to share \\\\10.x.x.33\\ADMIN$ (DISK)",
+   "timestamp": 1773484303.064999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00004",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_TREE_CONNECT",
+    "dialect": "2.10",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB TREE_CONNECT \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484303.067999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "smb_file_activity",
+   "id": "ev-zeek-smb-files-00001",
+   "log_type": "smb_files",
+   "metadata": {
+    "action": "SMB::FILE_OPEN",
+    "name": "Temp\\breachreplay-demo-task.txt",
+    "path": "\\\\10.x.x.33\\ADMIN$",
+    "size": 0
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "CIW0cd16EEeIr4o201",
+   "summary": "SMB open Temp\\breachreplay-demo-task.txt on \\\\10.x.x.33\\ADMIN$",
+   "timestamp": 1773484304.418999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00005",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_CREATE",
+    "dialect": "2.10",
+    "filename": "Temp\\breachreplay-demo-task.txt",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB CREATE \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484304.421999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00014",
+   "log_type": "files",
+   "metadata": {
+    "filename": "Temp\\breachreplay-demo-task.txt",
+    "is_orig": true,
+    "mime_type": "text/plain",
+    "seen_bytes": 1464,
+    "transport": "SMB"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "zeek",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "FuC4JKNNhBBBYekba",
+   "summary": "File over SMB: Temp\\breachreplay-demo-task.txt (text/plain, 1.4 KB, uploaded by originator)",
+   "timestamp": 1773484304.573999
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00006",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_WRITE",
+    "dialect": "2.10",
+    "filename": "Temp\\breachreplay-demo-task.txt",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB WRITE \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484304.728998
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00014",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "Temp\\breachreplay-demo-task.txt",
+    "size": 1464,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata file Temp\\breachreplay-demo-task.txt (1464 bytes)",
+   "timestamp": 1773484304.730998
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "suricata_smb",
+   "id": "ev-suricata-smb-00007",
+   "log_type": "eve.smb",
+   "metadata": {
+    "command": "SMB2_COMMAND_CLOSE",
+    "dialect": "2.10",
+    "status": "STATUS_SUCCESS"
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata SMB CLOSE \u2192 STATUS_SUCCESS",
+   "timestamp": 1773484304.730998
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00008",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "smb",
+    "category": "Attempted Administrator Privilege Gain",
+    "severity": 1,
+    "signature": "BREACHREPLAY SMB tree connect to ADMIN$ administrative share",
+    "signature_id": 9100004
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata alert [9100004] BREACHREPLAY SMB tree connect to ADMIN$ administrative share (severity 1)",
+   "timestamp": 1773484305.881998
+  },
+  {
+   "destination_asset_id": "asset-ws-03",
+   "destination_ip": "10.x.x.33",
+   "destination_port": 445,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00009",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "smb",
+    "category": "Targeted Malicious Activity was Detected",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO lateral-movement marker written over SMB",
+    "signature_id": 9100005
+   },
+   "protocol": "tcp",
+   "service": "smb",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 49228,
+   "source_record_id": "1688850870665820",
+   "summary": "Suricata alert [9100005] BREACHREPLAY DEMO lateral-movement marker written over SMB (severity 1)",
+   "timestamp": 1773484305.881998
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00021",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49229,
+   "source_record_id": "844426770435513",
+   "summary": "Suricata DNS query db-01.corp.example",
+   "timestamp": 1773484331.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00030",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 94,
+    "bytes_toserver": 78,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49229,
+   "source_record_id": "844426770435513",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484331.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00030",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 36,
+    "orig_pkts": 1,
+    "resp_bytes": 52,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49229,
+   "source_record_id": "C2QCSfcc7g3TRJ3K7",
+   "summary": "UDP WS-03 \u2192 DNS-01:53 (dns) \u00b7 36 B sent / 52 B received \u00b7 completed normally",
+   "timestamp": 1773484331.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00011",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "10.x.x.50"
+    ],
+    "qtype": "A",
+    "query": "db-01.corp.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49229,
+   "source_record_id": "C2QCSfcc7g3TRJ3K7",
+   "summary": "DNS A db-01.corp.example \u2192 10.x.x.50",
+   "timestamp": 1773484331.0
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00022",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "db-01.corp.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49229,
+   "source_record_id": "844426770435513",
+   "summary": "Suricata DNS answer db-01.corp.example",
+   "timestamp": 1773484331.0015
+  },
+  {
+   "destination_asset_id": "asset-db-01",
+   "destination_ip": "10.x.x.50",
+   "destination_port": 5432,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00031",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 26617,
+    "bytes_toserver": 570,
+    "pkts_toclient": 24,
+    "pkts_toserver": 8,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "failed",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49230,
+   "source_record_id": "1125901354568617",
+   "summary": "Suricata flow failed: 8/24 packets, state closed",
+   "timestamp": 1773484332.0
+  },
+  {
+   "destination_asset_id": "asset-db-01",
+   "destination_ip": "10.x.x.50",
+   "destination_port": 5432,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00031",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 1.33,
+    "history": "ShADadFf",
+    "orig_bytes": 138,
+    "orig_pkts": 8,
+    "resp_bytes": 25321,
+    "resp_pkts": 24
+   },
+   "protocol": "tcp",
+   "service": null,
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49230,
+   "source_record_id": "C20tQF1PQczOfiQZi4",
+   "summary": "TCP WS-03 \u2192 DB-01:5432 \u00b7 138 B sent / 24.7 KB received \u00b7 completed normally",
+   "timestamp": 1773484332.0
+  },
+  {
+   "destination_asset_id": "asset-db-01",
+   "destination_ip": "10.x.x.50",
+   "destination_port": 5432,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00010",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "failed",
+    "category": "Potential Corporate Privacy Violation",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO crown-jewel database query marker",
+    "signature_id": 9100006
+   },
+   "protocol": "tcp",
+   "service": "failed",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49230,
+   "source_record_id": "1125901354568617",
+   "summary": "Suricata alert [9100006] BREACHREPLAY DEMO crown-jewel database query marker (severity 1)",
+   "timestamp": 1773484333.328998
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00032",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 334,
+    "bytes_toserver": 449,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49233,
+   "source_record_id": "1688851307346407",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484350.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00032",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 125,
+    "orig_pkts": 6,
+    "resp_bytes": 118,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49233,
+   "source_record_id": "CmyuJR24ef36uKEJh4",
+   "summary": "TCP WS-02 \u2192 WEB-01:80 (http) \u00b7 125 B sent / 118 B received \u00b7 completed normally",
+   "timestamp": 1773484350.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00013",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/status"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49233,
+   "source_record_id": "CmyuJR24ef36uKEJh4",
+   "summary": "HTTP GET web-01.corp.example/status \u2192 200",
+   "timestamp": 1773484350.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00015",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 15,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49233,
+   "source_record_id": "FpdST83AezC1aAbkN5",
+   "summary": "File over HTTP: unnamed (text/html, 15 B, served by responder)",
+   "timestamp": 1773484350.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00013",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/status"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-02",
+   "source_ip": "10.x.x.22",
+   "source_port": 49233,
+   "source_record_id": "1688851307346407",
+   "summary": "Suricata HTTP GET /status",
+   "timestamp": 1773484350.006
+  },
+  {
+   "destination_asset_id": "asset-ws-02",
+   "destination_ip": "10.x.x.22",
+   "destination_port": 49233,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00015",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/status",
+    "size": 15,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "1688851307346407",
+   "summary": "Suricata file /status (15 bytes)",
+   "timestamp": 1773484350.007999
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00023",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rrname": "sync-drop.demo.example",
+    "rrtype": "A",
+    "type": "query"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49231,
+   "source_record_id": "1584537700782653",
+   "summary": "Suricata DNS query sync-drop.demo.example",
+   "timestamp": 1773484357.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00033",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 98,
+    "bytes_toserver": 82,
+    "pkts_toclient": 1,
+    "pkts_toserver": 1,
+    "state": "established"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49231,
+   "source_record_id": "1584537700782653",
+   "summary": "Suricata flow dns: 1/1 packets, state established",
+   "timestamp": 1773484357.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00033",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.001,
+    "history": "Dd",
+    "orig_bytes": 40,
+    "orig_pkts": 1,
+    "resp_bytes": 56,
+    "resp_pkts": 1
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49231,
+   "source_record_id": "CEcCas3OoPQq0D3mSa",
+   "summary": "UDP WS-03 \u2192 DNS-01:53 (dns) \u00b7 40 B sent / 56 B received \u00b7 completed normally",
+   "timestamp": 1773484357.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "dns_query",
+   "id": "ev-zeek-dns-00012",
+   "log_type": "dns",
+   "metadata": {
+    "answers": [
+     "203.0.113.45"
+    ],
+    "qtype": "A",
+    "query": "sync-drop.demo.example",
+    "rcode": "NOERROR"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49231,
+   "source_record_id": "CEcCas3OoPQq0D3mSa",
+   "summary": "DNS A sync-drop.demo.example \u2192 203.0.113.45",
+   "timestamp": 1773484357.5
+  },
+  {
+   "destination_asset_id": "asset-dns-01",
+   "destination_ip": "10.x.x.2",
+   "destination_port": 53,
+   "event_type": "suricata_dns",
+   "id": "ev-suricata-dns-00024",
+   "log_type": "eve.dns",
+   "metadata": {
+    "rcode": "NOERROR",
+    "rrname": "sync-drop.demo.example",
+    "rrtype": "A",
+    "type": "answer"
+   },
+   "protocol": "udp",
+   "service": "dns",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49231,
+   "source_record_id": "1584537700782653",
+   "summary": "Suricata DNS answer sync-drop.demo.example",
+   "timestamp": 1773484357.5015
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 443,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00034",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 839,
+    "bytes_toserver": 187656,
+    "pkts_toclient": 8,
+    "pkts_toserver": 138,
+    "state": "established"
+   },
+   "protocol": "tcp",
+   "service": "tls",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49232,
+   "source_record_id": "1688850692385692",
+   "summary": "Suricata flow tls: 138/8 packets, state established",
+   "timestamp": 1773484358.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 443,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00034",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 2.88,
+    "history": "ShADadFf",
+    "orig_bytes": 180204,
+    "orig_pkts": 138,
+    "resp_bytes": 407,
+    "resp_pkts": 8
+   },
+   "protocol": "tcp",
+   "service": "ssl",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49232,
+   "source_record_id": "CJLuly1eZqviKVUO69",
+   "summary": "TCP WS-03 \u2192 203.0.113.45:443 (ssl) \u00b7 176.0 KB sent / 407 B received \u00b7 completed normally",
+   "timestamp": 1773484358.0
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 443,
+   "event_type": "tls_session",
+   "id": "ev-zeek-ssl-00002",
+   "log_type": "ssl",
+   "metadata": {
+    "cipher": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "established": true,
+    "server_name": "sync-drop.demo.example",
+    "version": "TLSv12"
+   },
+   "protocol": "tcp",
+   "service": "ssl",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49232,
+   "source_record_id": "CJLuly1eZqviKVUO69",
+   "summary": "TLS TLSv12 session to sync-drop.demo.example (established)",
+   "timestamp": 1773484358.06
+  },
+  {
+   "destination_asset_id": "asset-203-0-113-45",
+   "destination_ip": "203.0.113.45",
+   "destination_port": 443,
+   "event_type": "ids_alert",
+   "id": "ev-suricata-alert-00011",
+   "log_type": "eve.alert",
+   "metadata": {
+    "action": "allowed",
+    "app_proto": "tls",
+    "category": "Potential Corporate Privacy Violation",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO TLS session to demo exfiltration endpoint",
+    "signature_id": 9100007,
+    "tls_sni": "sync-drop.demo.example"
+   },
+   "protocol": "tcp",
+   "service": "tls",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-03",
+   "source_ip": "10.x.x.33",
+   "source_port": 49232,
+   "source_record_id": "1688850692385692",
+   "summary": "Suricata alert [9100007] BREACHREPLAY DEMO TLS session to demo exfiltration endpoint (severity 1)",
+   "timestamp": 1773484358.12
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_flow",
+   "id": "ev-suricata-flow-00035",
+   "log_type": "eve.flow",
+   "metadata": {
+    "bytes_toclient": 334,
+    "bytes_toserver": 443,
+    "pkts_toclient": 4,
+    "pkts_toserver": 6,
+    "state": "closed"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49234,
+   "source_record_id": "562952789025042",
+   "summary": "Suricata flow http: 6/4 packets, state closed",
+   "timestamp": 1773484370.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "connection",
+   "id": "ev-zeek-conn-00035",
+   "log_type": "conn",
+   "metadata": {
+    "conn_state": "SF",
+    "duration_seconds": 0.008,
+    "history": "ShADadFf",
+    "orig_bytes": 119,
+    "orig_pkts": 6,
+    "resp_bytes": 118,
+    "resp_pkts": 4
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49234,
+   "source_record_id": "Cw77f84YsZCSXvbkWl",
+   "summary": "TCP WS-01 \u2192 WEB-01:80 (http) \u00b7 119 B sent / 118 B received \u00b7 completed normally",
+   "timestamp": 1773484370.0
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "http_request",
+   "id": "ev-zeek-http-00014",
+   "log_type": "http",
+   "metadata": {
+    "host": "web-01.corp.example",
+    "method": "GET",
+    "status_code": 200,
+    "uri": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49234,
+   "source_record_id": "Cw77f84YsZCSXvbkWl",
+   "summary": "HTTP GET web-01.corp.example/ \u2192 200",
+   "timestamp": 1773484370.003
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "file_transfer",
+   "id": "ev-zeek-files-00016",
+   "log_type": "files",
+   "metadata": {
+    "is_orig": false,
+    "mime_type": "text/html",
+    "seen_bytes": 15,
+    "transport": "HTTP"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "zeek",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49234,
+   "source_record_id": "FviJtj1HCdpzMs7wrg",
+   "summary": "File over HTTP: unnamed (text/html, 15 B, served by responder)",
+   "timestamp": 1773484370.005
+  },
+  {
+   "destination_asset_id": "asset-web-01",
+   "destination_ip": "10.x.x.10",
+   "destination_port": 80,
+   "event_type": "suricata_http",
+   "id": "ev-suricata-http-00014",
+   "log_type": "eve.http",
+   "metadata": {
+    "hostname": "web-01.corp.example",
+    "http_method": "GET",
+    "status": 200,
+    "url": "/"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-ws-01",
+   "source_ip": "10.x.x.21",
+   "source_port": 49234,
+   "source_record_id": "562952789025042",
+   "summary": "Suricata HTTP GET /",
+   "timestamp": 1773484370.006
+  },
+  {
+   "destination_asset_id": "asset-ws-01",
+   "destination_ip": "10.x.x.21",
+   "destination_port": 49234,
+   "event_type": "suricata_fileinfo",
+   "id": "ev-suricata-fileinfo-00016",
+   "log_type": "eve.fileinfo",
+   "metadata": {
+    "filename": "/",
+    "size": 15,
+    "state": "CLOSED"
+   },
+   "protocol": "tcp",
+   "service": "http",
+   "source": "suricata",
+   "source_asset_id": "asset-web-01",
+   "source_ip": "10.x.x.10",
+   "source_port": 80,
+   "source_record_id": "562952789025042",
+   "summary": "Suricata file / (15 bytes)",
+   "timestamp": 1773484370.007999
+  }
+ ],
+ "format": "breachreplay-showcase/1",
+ "incident": {
+  "assets": [
+   {
+    "asset_type": "INFRASTRUCTURE",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "DNS-01",
+    "first_seen": 1773484202.0,
+    "hostname": "dns-01.corp.example",
+    "id": "asset-dns-01",
+    "importance": 50,
+    "internal": true,
+    "ip": "10.x.x.2",
+    "labels": [
+     "core"
+    ],
+    "last_seen": 1773484357.5,
+    "role": "Internal DNS resolver",
+    "services": [
+     "53/dns"
+    ],
+    "state": "NORMAL"
+   },
+   {
+    "asset_type": "WORKSTATION",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "WS-01",
+    "first_seen": 1773484202.0,
+    "hostname": "ws-01.corp.example",
+    "id": "asset-ws-01",
+    "importance": 40,
+    "internal": true,
+    "ip": "10.x.x.21",
+    "labels": [],
+    "last_seen": 1773484370.0,
+    "role": "Workstation",
+    "services": [],
+    "state": "NORMAL"
+   },
+   {
+    "asset_type": "SERVER",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "WEB-01",
+    "first_seen": 1773484203.0,
+    "hostname": "web-01.corp.example",
+    "id": "asset-web-01",
+    "importance": 60,
+    "internal": true,
+    "ip": "10.x.x.10",
+    "labels": [
+     "dmz",
+     "internet-facing"
+    ],
+    "last_seen": 1773484370.0,
+    "role": "Public web server",
+    "services": [
+     "80/http"
+    ],
+    "state": "AFFECTED"
+   },
+   {
+    "asset_type": "WORKSTATION",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "WS-02",
+    "first_seen": 1773484204.5,
+    "hostname": "ws-02.corp.example",
+    "id": "asset-ws-02",
+    "importance": 40,
+    "internal": true,
+    "ip": "10.x.x.22",
+    "labels": [],
+    "last_seen": 1773484350.0,
+    "role": "Workstation",
+    "services": [],
+    "state": "NORMAL"
+   },
+   {
+    "asset_type": "DATABASE",
+    "crown_jewel": true,
+    "crown_jewel_reason": "Customer database (designated crown jewel in asset context)",
+    "display_name": "DB-01",
+    "first_seen": 1773484208.0,
+    "hostname": "db-01.corp.example",
+    "id": "asset-db-01",
+    "importance": 100,
+    "internal": true,
+    "ip": "10.x.x.50",
+    "labels": [
+     "crown-jewel",
+     "data-segment"
+    ],
+    "last_seen": 1773484333.328998,
+    "role": "Customer database",
+    "services": [
+     "5432/tcp"
+    ],
+    "state": "AFFECTED"
+   },
+   {
+    "asset_type": "WORKSTATION",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "WS-03",
+    "first_seen": 1773484209.0,
+    "hostname": "ws-03.corp.example",
+    "id": "asset-ws-03",
+    "importance": 40,
+    "internal": true,
+    "ip": "10.x.x.33",
+    "labels": [
+     "user-segment"
+    ],
+    "last_seen": 1773484358.12,
+    "role": "Finance workstation",
+    "services": [
+     "445/ntlm+smb"
+    ],
+    "state": "AFFECTED"
+   },
+   {
+    "asset_type": "INTERNET",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "198.51.100.20",
+    "first_seen": 1773484210.0,
+    "hostname": "updates.vendor.example",
+    "id": "asset-198-51-100-20",
+    "importance": 20,
+    "internal": false,
+    "ip": "198.51.100.20",
+    "labels": [
+     "external"
+    ],
+    "last_seen": 1773484210.0,
+    "role": "External host",
+    "services": [
+     "443/ssl"
+    ],
+    "state": "NORMAL"
+   },
+   {
+    "asset_type": "INTERNET",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "203.0.113.45",
+    "first_seen": 1773484260.0,
+    "hostname": "sync-drop.demo.example",
+    "id": "asset-203-0-113-45",
+    "importance": 20,
+    "internal": false,
+    "ip": "203.0.113.45",
+    "labels": [
+     "external"
+    ],
+    "last_seen": 1773484358.12,
+    "role": "External host",
+    "services": [
+     "443/ssl",
+     "8080/http"
+    ],
+    "state": "SUSPICIOUS"
+   },
+   {
+    "asset_type": "UNKNOWN",
+    "crown_jewel": false,
+    "crown_jewel_reason": null,
+    "display_name": "10.x.x.34",
+    "first_seen": 1773484294.8,
+    "hostname": null,
+    "id": "asset-10-20-2-34",
+    "importance": 10,
+    "internal": true,
+    "ip": "10.x.x.34",
+    "labels": [],
+    "last_seen": 1773484295.301,
+    "role": "Unclassified host",
+    "services": [],
+    "state": "NORMAL"
+   }
+  ],
+  "capture_ended_at": 1773484370.007999,
+  "capture_started_at": 1773484202.0,
+  "crown_jewels": [
+   "asset-db-01"
+  ],
+  "demo": true,
+  "detections": [
+   {
+    "category": "Web Application Attack",
+    "destination_asset_id": "asset-web-01",
+    "destination_ip": "10.x.x.10",
+    "destination_port": 80,
+    "evidence_ids": [
+     "ev-suricata-alert-00001"
+    ],
+    "id": "det-0001",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO initial-access marker in inbound web request",
+    "signature_id": "9100001",
+    "source": "suricata",
+    "source_asset_id": "asset-203-0-113-45",
+    "source_ip": "203.0.113.45",
+    "source_port": 49220,
+    "timestamp": 1773484268.12
+   },
+   {
+    "category": "Malware Command and Control Activity Detected",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_ip": "203.0.113.45",
+    "destination_port": 8080,
+    "evidence_ids": [
+     "ev-suricata-alert-00002"
+    ],
+    "id": "det-0002",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": "9100002",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49221,
+    "timestamp": 1773484280.12
+   },
+   {
+    "category": "Malware Command and Control Activity Detected",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_ip": "203.0.113.45",
+    "destination_port": 8080,
+    "evidence_ids": [
+     "ev-suricata-alert-00003"
+    ],
+    "id": "det-0003",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": "9100002",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49222,
+    "timestamp": 1773484286.12
+   },
+   {
+    "category": "Malware Command and Control Activity Detected",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_ip": "203.0.113.45",
+    "destination_port": 8080,
+    "evidence_ids": [
+     "ev-suricata-alert-00004"
+    ],
+    "id": "det-0004",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO beacon marker in outbound web request",
+    "signature_id": "9100002",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49223,
+    "timestamp": 1773484292.12
+   },
+   {
+    "category": "Detection of a Network Scan",
+    "destination_asset_id": "asset-ws-03",
+    "destination_ip": "10.x.x.33",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-suricata-alert-00005"
+    ],
+    "id": "det-0005",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": "9100003",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49227,
+    "timestamp": 1773484295.2
+   },
+   {
+    "category": "Detection of a Network Scan",
+    "destination_asset_id": "asset-10-20-2-34",
+    "destination_ip": "10.x.x.34",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-suricata-alert-00006"
+    ],
+    "id": "det-0006",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": "9100003",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49226,
+    "timestamp": 1773484295.301
+   },
+   {
+    "category": "Detection of a Network Scan",
+    "destination_asset_id": "asset-ws-03",
+    "destination_ip": "10.x.x.33",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-suricata-alert-00007"
+    ],
+    "id": "det-0007",
+    "severity": 3,
+    "signature": "BREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)",
+    "signature_id": "9100003",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49228,
+    "timestamp": 1773484302.0
+   },
+   {
+    "category": "Zeek notice",
+    "destination_asset_id": null,
+    "destination_ip": null,
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-zeek-notice-00001"
+    ],
+    "id": "det-0012",
+    "severity": 2,
+    "signature": "BreachReplay::Internal_Port_Sweep: 10.x.x.10 probed 3 internal hosts on 445/tcp",
+    "signature_id": "BreachReplay::Internal_Port_Sweep",
+    "source": "zeek",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": null,
+    "timestamp": 1773484302.0
+   },
+   {
+    "category": "Zeek notice",
+    "destination_asset_id": "asset-ws-03",
+    "destination_ip": "10.x.x.33",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-zeek-notice-00002"
+    ],
+    "id": "det-0013",
+    "severity": 2,
+    "signature": "BreachReplay::Admin_Share_Access: SMB tree connect to administrative share \\\\10.x.x.33\\ADMIN$",
+    "signature_id": "BreachReplay::Admin_Share_Access",
+    "source": "zeek",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": null,
+    "timestamp": 1773484303.064999
+   },
+   {
+    "category": "Attempted Administrator Privilege Gain",
+    "destination_asset_id": "asset-ws-03",
+    "destination_ip": "10.x.x.33",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-suricata-alert-00008"
+    ],
+    "id": "det-0008",
+    "severity": 1,
+    "signature": "BREACHREPLAY SMB tree connect to ADMIN$ administrative share",
+    "signature_id": "9100004",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49228,
+    "timestamp": 1773484305.881998
+   },
+   {
+    "category": "Targeted Malicious Activity was Detected",
+    "destination_asset_id": "asset-ws-03",
+    "destination_ip": "10.x.x.33",
+    "destination_port": 445,
+    "evidence_ids": [
+     "ev-suricata-alert-00009"
+    ],
+    "id": "det-0009",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO lateral-movement marker written over SMB",
+    "signature_id": "9100005",
+    "source": "suricata",
+    "source_asset_id": "asset-web-01",
+    "source_ip": "10.x.x.10",
+    "source_port": 49228,
+    "timestamp": 1773484305.881998
+   },
+   {
+    "category": "Potential Corporate Privacy Violation",
+    "destination_asset_id": "asset-db-01",
+    "destination_ip": "10.x.x.50",
+    "destination_port": 5432,
+    "evidence_ids": [
+     "ev-suricata-alert-00010"
+    ],
+    "id": "det-0010",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO crown-jewel database query marker",
+    "signature_id": "9100006",
+    "source": "suricata",
+    "source_asset_id": "asset-ws-03",
+    "source_ip": "10.x.x.33",
+    "source_port": 49230,
+    "timestamp": 1773484333.328998
+   },
+   {
+    "category": "Potential Corporate Privacy Violation",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_ip": "203.0.113.45",
+    "destination_port": 443,
+    "evidence_ids": [
+     "ev-suricata-alert-00011"
+    ],
+    "id": "det-0011",
+    "severity": 1,
+    "signature": "BREACHREPLAY DEMO TLS session to demo exfiltration endpoint",
+    "signature_id": "9100007",
+    "source": "suricata",
+    "source_asset_id": "asset-ws-03",
+    "source_ip": "10.x.x.33",
+    "source_port": 49232,
+    "timestamp": 1773484358.12
+   }
+  ],
+  "duration_seconds": 100.88,
+  "edges": [
+   {
+    "bytes_total": 354,
+    "confidence": 0,
+    "connection_count": 4,
+    "destination_asset_id": "asset-dns-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00001",
+     "ev-zeek-conn-00005",
+     "ev-zeek-conn-00013",
+     "ev-zeek-conn-00015"
+    ],
+    "first_seen": 1773484202.0,
+    "id": "edge-ws-01--dns-01",
+    "last_seen": 1773484228.0015,
+    "on_primary_path": false,
+    "ports": [
+     53
+    ],
+    "protocols": [
+     "udp"
+    ],
+    "services": [
+     "dns"
+    ],
+    "source_asset_id": "asset-ws-01",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 783,
+    "confidence": 0,
+    "connection_count": 3,
+    "destination_asset_id": "asset-web-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00002",
+     "ev-zeek-conn-00011",
+     "ev-zeek-conn-00035"
+    ],
+    "first_seen": 1773484203.0,
+    "id": "edge-ws-01--web-01",
+    "last_seen": 1773484370.007999,
+    "on_primary_path": false,
+    "ports": [
+     80
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "http"
+    ],
+    "source_asset_id": "asset-ws-01",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 266,
+    "confidence": 0,
+    "connection_count": 3,
+    "destination_asset_id": "asset-dns-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00003",
+     "ev-zeek-conn-00009",
+     "ev-zeek-conn-00014"
+    ],
+    "first_seen": 1773484204.5,
+    "id": "edge-ws-02--dns-01",
+    "last_seen": 1773484226.0015,
+    "on_primary_path": false,
+    "ports": [
+     53
+    ],
+    "protocols": [
+     "udp"
+    ],
+    "services": [
+     "dns"
+    ],
+    "source_asset_id": "asset-ws-02",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 784,
+    "confidence": 0,
+    "connection_count": 3,
+    "destination_asset_id": "asset-web-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00004",
+     "ev-zeek-conn-00016",
+     "ev-zeek-conn-00032"
+    ],
+    "first_seen": 1773484205.0,
+    "id": "edge-ws-02--web-01",
+    "last_seen": 1773484350.007999,
+    "on_primary_path": false,
+    "ports": [
+     80
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "http"
+    ],
+    "source_asset_id": "asset-ws-02",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 171,
+    "confidence": 0,
+    "connection_count": 1,
+    "destination_asset_id": "asset-db-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00006"
+    ],
+    "first_seen": 1773484208.0,
+    "id": "edge-ws-01--db-01",
+    "last_seen": 1773484208.011999,
+    "on_primary_path": false,
+    "ports": [
+     5432
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [],
+    "source_asset_id": "asset-ws-01",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 368,
+    "confidence": 0,
+    "connection_count": 4,
+    "destination_asset_id": "asset-dns-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00007",
+     "ev-zeek-conn-00012",
+     "ev-zeek-conn-00030",
+     "ev-zeek-conn-00033"
+    ],
+    "first_seen": 1773484209.0,
+    "id": "edge-ws-03--dns-01",
+    "last_seen": 1773484357.5015,
+    "on_primary_path": false,
+    "ports": [
+     53
+    ],
+    "protocols": [
+     "udp"
+    ],
+    "services": [
+     "dns"
+    ],
+    "source_asset_id": "asset-ws-03",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 5056,
+    "confidence": 0,
+    "connection_count": 1,
+    "destination_asset_id": "asset-198-51-100-20",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00008"
+    ],
+    "first_seen": 1773484210.0,
+    "id": "edge-ws-03--198-51-100-20",
+    "last_seen": 1773484210.285002,
+    "on_primary_path": false,
+    "ports": [
+     443
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "ssl",
+     "tls"
+    ],
+    "source_asset_id": "asset-ws-03",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 88,
+    "confidence": 0,
+    "connection_count": 1,
+    "destination_asset_id": "asset-dns-01",
+    "event_ids": [],
+    "evidence_ids": [
+     "ev-zeek-conn-00010"
+    ],
+    "first_seen": 1773484215.0,
+    "id": "edge-web-01--dns-01",
+    "last_seen": 1773484215.0015,
+    "on_primary_path": false,
+    "ports": [
+     53
+    ],
+    "protocols": [
+     "udp"
+    ],
+    "services": [
+     "dns"
+    ],
+    "source_asset_id": "asset-web-01",
+    "state": "OBSERVED"
+   },
+   {
+    "bytes_total": 1702,
+    "confidence": 67,
+    "connection_count": 5,
+    "destination_asset_id": "asset-web-01",
+    "event_ids": [
+     "evt-01",
+     "evt-02"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00017",
+     "ev-zeek-conn-00018",
+     "ev-zeek-conn-00019",
+     "ev-zeek-conn-00020",
+     "ev-zeek-conn-00021"
+    ],
+    "first_seen": 1773484260.0,
+    "id": "edge-203-0-113-45--web-01",
+    "last_seen": 1773484268.16,
+    "on_primary_path": true,
+    "ports": [
+     80
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "http"
+    ],
+    "source_asset_id": "asset-203-0-113-45",
+    "state": "ATTACK"
+   },
+   {
+    "bytes_total": 933,
+    "confidence": 81,
+    "connection_count": 3,
+    "destination_asset_id": "asset-203-0-113-45",
+    "event_ids": [
+     "evt-03"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00022",
+     "ev-zeek-conn-00023",
+     "ev-zeek-conn-00024"
+    ],
+    "first_seen": 1773484280.0,
+    "id": "edge-web-01--203-0-113-45",
+    "last_seen": 1773484292.16,
+    "on_primary_path": false,
+    "ports": [
+     8080
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "http"
+    ],
+    "source_asset_id": "asset-web-01",
+    "state": "ATTACK"
+   },
+   {
+    "bytes_total": 0,
+    "confidence": 76,
+    "connection_count": 1,
+    "destination_asset_id": "asset-ws-01",
+    "event_ids": [
+     "evt-04"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00025"
+    ],
+    "first_seen": 1773484294.0,
+    "id": "edge-web-01--ws-01",
+    "last_seen": 1773484294.001,
+    "on_primary_path": false,
+    "ports": [
+     445
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [],
+    "source_asset_id": "asset-web-01",
+    "state": "SUSPICIOUS"
+   },
+   {
+    "bytes_total": 0,
+    "confidence": 76,
+    "connection_count": 1,
+    "destination_asset_id": "asset-ws-02",
+    "event_ids": [
+     "evt-04"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00026"
+    ],
+    "first_seen": 1773484294.4,
+    "id": "edge-web-01--ws-02",
+    "last_seen": 1773484294.401,
+    "on_primary_path": false,
+    "ports": [
+     445
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [],
+    "source_asset_id": "asset-web-01",
+    "state": "SUSPICIOUS"
+   },
+   {
+    "bytes_total": 0,
+    "confidence": 76,
+    "connection_count": 1,
+    "destination_asset_id": "asset-10-20-2-34",
+    "event_ids": [
+     "evt-04"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00027"
+    ],
+    "first_seen": 1773484294.8,
+    "id": "edge-web-01--10-20-2-34",
+    "last_seen": 1773484295.301,
+    "on_primary_path": false,
+    "ports": [
+     445
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [],
+    "source_asset_id": "asset-web-01",
+    "state": "SUSPICIOUS"
+   },
+   {
+    "bytes_total": 3208,
+    "confidence": 85,
+    "connection_count": 2,
+    "destination_asset_id": "asset-ws-03",
+    "event_ids": [
+     "evt-04",
+     "evt-05"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00028",
+     "ev-zeek-conn-00029"
+    ],
+    "first_seen": 1773484295.2,
+    "id": "edge-web-01--ws-03",
+    "last_seen": 1773484305.882998,
+    "on_primary_path": true,
+    "ports": [
+     445
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "ntlm",
+     "smb"
+    ],
+    "source_asset_id": "asset-web-01",
+    "state": "ATTACK"
+   },
+   {
+    "bytes_total": 25459,
+    "confidence": 72,
+    "connection_count": 1,
+    "destination_asset_id": "asset-db-01",
+    "event_ids": [
+     "evt-06"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00031"
+    ],
+    "first_seen": 1773484332.0,
+    "id": "edge-ws-03--db-01",
+    "last_seen": 1773484333.329998,
+    "on_primary_path": true,
+    "ports": [
+     5432
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [],
+    "source_asset_id": "asset-ws-03",
+    "state": "ATTACK"
+   },
+   {
+    "bytes_total": 180611,
+    "confidence": 83,
+    "connection_count": 1,
+    "destination_asset_id": "asset-203-0-113-45",
+    "event_ids": [
+     "evt-07"
+    ],
+    "evidence_ids": [
+     "ev-zeek-conn-00034"
+    ],
+    "first_seen": 1773484358.0,
+    "id": "edge-ws-03--203-0-113-45",
+    "last_seen": 1773484360.879997,
+    "on_primary_path": false,
+    "ports": [
+     443
+    ],
+    "protocols": [
+     "tcp"
+    ],
+    "services": [
+     "ssl",
+     "tls"
+    ],
+    "source_asset_id": "asset-ws-03",
+    "state": "ATTACK"
+   }
+  ],
+  "ended_at": 1773484360.879997,
+  "events": [
+   {
+    "confidence": 15,
+    "confidence_label": "OBSERVED",
+    "description": "203.0.113.45 made 4 web requests to WEB-01 (/, /admin, /login, /upload.php). On their own these requests are ordinary; they matter because of what follows.",
+    "destination_asset_id": "asset-web-01",
+    "destination_port": 80,
+    "detection_ids": [],
+    "edge_id": "edge-203-0-113-45--web-01",
+    "end_timestamp": 1773484264.36,
+    "event_type": "external_recon",
+    "evidence_ids": [
+     "ev-suricata-fileinfo-00005",
+     "ev-suricata-fileinfo-00006",
+     "ev-suricata-fileinfo-00007",
+     "ev-suricata-fileinfo-00008",
+     "ev-suricata-flow-00017",
+     "ev-suricata-flow-00018",
+     "ev-suricata-flow-00019",
+     "ev-suricata-flow-00020",
+     "ev-suricata-http-00005",
+     "ev-suricata-http-00006",
+     "ev-suricata-http-00007",
+     "ev-suricata-http-00008",
+     "ev-zeek-conn-00017",
+     "ev-zeek-conn-00018",
+     "ev-zeek-conn-00019",
+     "ev-zeek-conn-00020",
+     "ev-zeek-files-00005",
+     "ev-zeek-files-00006",
+     "ev-zeek-files-00007",
+     "ev-zeek-files-00008",
+     "ev-zeek-http-00005",
+     "ev-zeek-http-00006",
+     "ev-zeek-http-00007",
+     "ev-zeek-http-00008"
+    ],
+    "id": "evt-01",
+    "identity": null,
+    "on_primary_path": false,
+    "phase": "Reconnaissance",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 15,
+      "signal": "base",
+      "text": "Activity pattern: external recon"
+     }
+    ],
+    "service": "http",
+    "severity": "low",
+    "source_asset_id": "asset-203-0-113-45",
+    "state_changes": [],
+    "tags": [
+     "external_recon",
+     "proto:http"
+    ],
+    "target_asset_ids": [
+     "asset-web-01"
+    ],
+    "technique": null,
+    "technique_confidence": null,
+    "technique_id": null,
+    "technique_name": null,
+    "technique_reason": "Not mapped: confidence below SUSPICIOUS.",
+    "timestamp": 1773484260.0,
+    "title": "External probing"
+   },
+   {
+    "confidence": 67,
+    "confidence_label": "LIKELY",
+    "description": "203.0.113.45 sent a request to WEB-01 over TCP/80. Suricata flagged it as \u201cBREACHREPLAY DEMO initial-access marker in inbound web request\u201d. A file (breachreplay-demo.txt) was uploaded in the same request.",
+    "destination_asset_id": "asset-web-01",
+    "destination_port": 80,
+    "detection_ids": [
+     "det-0001"
+    ],
+    "edge_id": "edge-203-0-113-45--web-01",
+    "end_timestamp": 1773484268.16,
+    "event_type": "initial_access",
+    "evidence_ids": [
+     "ev-suricata-alert-00001",
+     "ev-suricata-fileinfo-00009",
+     "ev-suricata-fileinfo-00010",
+     "ev-suricata-flow-00021",
+     "ev-suricata-http-00009",
+     "ev-zeek-conn-00021",
+     "ev-zeek-files-00009",
+     "ev-zeek-files-00010",
+     "ev-zeek-http-00009"
+    ],
+    "id": "evt-02",
+    "identity": null,
+    "on_primary_path": true,
+    "phase": "Initial Access",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 25,
+      "signal": "base",
+      "text": "Activity pattern: initial access"
+     },
+     {
+      "points": 45,
+      "signal": "detection_high",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY DEMO initial-access marker in inbound web request\u201d (severity 1)"
+     },
+     {
+      "points": 15,
+      "signal": "recon_precursor",
+      "text": "Preceded by probing of WEB-01 from the same external host (10:31:00)"
+     },
+     {
+      "points": 5,
+      "signal": "inbound_file",
+      "text": "File uploaded to the server: breachreplay-demo.txt (text/plain)"
+     }
+    ],
+    "service": "http",
+    "severity": "high",
+    "source_asset_id": "asset-203-0-113-45",
+    "state_changes": [
+     {
+      "asset_id": "asset-203-0-113-45",
+      "from_state": "NORMAL",
+      "to_state": "SUSPICIOUS"
+     },
+     {
+      "asset_id": "asset-web-01",
+      "from_state": "NORMAL",
+      "to_state": "AFFECTED"
+     }
+    ],
+    "tags": [
+     "initial_access",
+     "proto:http"
+    ],
+    "target_asset_ids": [
+     "asset-web-01"
+    ],
+    "technique": {
+     "confidence": 67,
+     "reason": "Inbound HTTP request from an external host to an internal web server matched a web-application-attack signature, and the server began initiating suspicious activity afterwards.",
+     "tactic": "Initial Access",
+     "technique_id": "T1190",
+     "technique_name": "Exploit Public-Facing Application",
+     "url": "https://attack.mitre.org/techniques/T1190/"
+    },
+    "technique_confidence": 67,
+    "technique_id": "T1190",
+    "technique_name": "Exploit Public-Facing Application",
+    "technique_reason": "Inbound HTTP request from an external host to an internal web server matched a web-application-attack signature, and the server began initiating suspicious activity afterwards.",
+    "timestamp": 1773484268.0,
+    "title": "Initial access"
+   },
+   {
+    "confidence": 81,
+    "confidence_label": "LIKELY",
+    "description": "WEB-01 made 3 outbound connections to 203.0.113.45 over TCP/8080. Suricata flagged it as \u201cBREACHREPLAY DEMO beacon marker in outbound web request\u201d.",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_port": 8080,
+    "detection_ids": [
+     "det-0002",
+     "det-0003",
+     "det-0004"
+    ],
+    "edge_id": "edge-web-01--203-0-113-45",
+    "end_timestamp": 1773484292.16,
+    "event_type": "command_and_control",
+    "evidence_ids": [
+     "ev-suricata-alert-00002",
+     "ev-suricata-alert-00003",
+     "ev-suricata-alert-00004",
+     "ev-suricata-fileinfo-00011",
+     "ev-suricata-fileinfo-00012",
+     "ev-suricata-fileinfo-00013",
+     "ev-suricata-flow-00022",
+     "ev-suricata-flow-00023",
+     "ev-suricata-flow-00024",
+     "ev-suricata-http-00010",
+     "ev-suricata-http-00011",
+     "ev-suricata-http-00012",
+     "ev-zeek-conn-00022",
+     "ev-zeek-conn-00023",
+     "ev-zeek-conn-00024",
+     "ev-zeek-files-00011",
+     "ev-zeek-files-00012",
+     "ev-zeek-files-00013",
+     "ev-zeek-http-00010",
+     "ev-zeek-http-00011",
+     "ev-zeek-http-00012"
+    ],
+    "id": "evt-03",
+    "identity": null,
+    "on_primary_path": false,
+    "phase": "Command and Control",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 20,
+      "signal": "base",
+      "text": "Activity pattern: command and control"
+     },
+     {
+      "points": 45,
+      "signal": "detection_high",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY DEMO beacon marker in outbound web request\u201d (severity 1)"
+     },
+     {
+      "points": 25,
+      "signal": "source_previously_suspicious",
+      "text": "Source WEB-01 was already involved in suspicious activity (Initial access, 10:31:08)"
+     },
+     {
+      "points": 10,
+      "signal": "temporal_proximity",
+      "text": "Occurred 12 s after that earlier suspicious activity"
+     },
+     {
+      "points": 25,
+      "signal": "known_attacker_endpoint",
+      "text": "Destination 203.0.113.45 is the external endpoint involved in initial access (10:31:08)"
+     },
+     {
+      "points": 15,
+      "signal": "periodic",
+      "text": "3 repeated outbound connections, about every 6 s"
+     }
+    ],
+    "service": "http",
+    "severity": "high",
+    "source_asset_id": "asset-web-01",
+    "state_changes": [],
+    "tags": [
+     "command_and_control",
+     "proto:http"
+    ],
+    "target_asset_ids": [
+     "asset-203-0-113-45"
+    ],
+    "technique": {
+     "confidence": 80,
+     "reason": "An internal host already involved in suspicious activity made repeated outbound web-protocol requests to the external endpoint involved in initial access, matching a command-and-control detection.",
+     "tactic": "Command and Control",
+     "technique_id": "T1071.001",
+     "technique_name": "Application Layer Protocol: Web Protocols",
+     "url": "https://attack.mitre.org/techniques/T1071/001/"
+    },
+    "technique_confidence": 80,
+    "technique_id": "T1071.001",
+    "technique_name": "Application Layer Protocol: Web Protocols",
+    "technique_reason": "An internal host already involved in suspicious activity made repeated outbound web-protocol requests to the external endpoint involved in initial access, matching a command-and-control detection.",
+    "timestamp": 1773484280.0,
+    "title": "Command & control"
+   },
+   {
+    "confidence": 76,
+    "confidence_label": "LIKELY",
+    "description": "WEB-01 probed 4 internal hosts on TCP/445 (10.x.x.34, WS-01, WS-02, WS-03) in a few seconds. Suricata flagged it as \u201cBREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)\u201d.",
+    "destination_asset_id": null,
+    "destination_port": 445,
+    "detection_ids": [
+     "det-0005",
+     "det-0006"
+    ],
+    "edge_id": null,
+    "end_timestamp": 1773484295.301,
+    "event_type": "discovery",
+    "evidence_ids": [
+     "ev-suricata-alert-00005",
+     "ev-suricata-alert-00006",
+     "ev-suricata-flow-00025",
+     "ev-suricata-flow-00026",
+     "ev-suricata-flow-00027",
+     "ev-suricata-flow-00028",
+     "ev-zeek-conn-00025",
+     "ev-zeek-conn-00026",
+     "ev-zeek-conn-00027",
+     "ev-zeek-conn-00028"
+    ],
+    "id": "evt-04",
+    "identity": null,
+    "on_primary_path": false,
+    "phase": "Discovery",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 25,
+      "signal": "base",
+      "text": "Activity pattern: discovery"
+     },
+     {
+      "points": 20,
+      "signal": "detection_low",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)\u201d (severity 3)"
+     },
+     {
+      "points": 20,
+      "signal": "zeek_notice",
+      "text": "Zeek notice raised: BreachReplay::Internal_Port_Sweep: 10.x.x.10 probed 3 internal hosts on 445/tcp"
+     },
+     {
+      "points": 25,
+      "signal": "fanout",
+      "text": "WEB-01 contacted 4 internal hosts on TCP/445 within 1 s; 3 attempts were rejected or unanswered"
+     },
+     {
+      "points": 25,
+      "signal": "source_previously_suspicious",
+      "text": "Source WEB-01 was already involved in suspicious activity (Command & control, 10:31:20)"
+     },
+     {
+      "points": 10,
+      "signal": "temporal_proximity",
+      "text": "Occurred 14 s after that earlier suspicious activity"
+     }
+    ],
+    "service": null,
+    "severity": "high",
+    "source_asset_id": "asset-web-01",
+    "state_changes": [],
+    "tags": [
+     "discovery"
+    ],
+    "target_asset_ids": [
+     "asset-10-20-2-34",
+     "asset-ws-01",
+     "asset-ws-02",
+     "asset-ws-03"
+    ],
+    "technique": {
+     "confidence": 76,
+     "reason": "One internal host probed 4 internal hosts on the same service port within seconds, with most attempts rejected or unanswered.",
+     "tactic": "Discovery",
+     "technique_id": "T1046",
+     "technique_name": "Network Service Discovery",
+     "url": "https://attack.mitre.org/techniques/T1046/"
+    },
+    "technique_confidence": 76,
+    "technique_id": "T1046",
+    "technique_name": "Network Service Discovery",
+    "technique_reason": "One internal host probed 4 internal hosts on the same service port within seconds, with most attempts rejected or unanswered.",
+    "timestamp": 1773484294.0,
+    "title": "Internal discovery"
+   },
+   {
+    "confidence": 85,
+    "confidence_label": "HIGH CONFIDENCE",
+    "description": "WEB-01 opened an administrative session to WS-03 over TCP/445. It authenticated as CORP-DEMO\\svc-demo and connected to the \\\\10.x.x.33\\ADMIN$ share. Suricata flagged it as \u201cBREACHREPLAY internal SMB sweep (3+ hosts probed on TCP/445)\u201d.",
+    "destination_asset_id": "asset-ws-03",
+    "destination_port": 445,
+    "detection_ids": [
+     "det-0007",
+     "det-0013",
+     "det-0008",
+     "det-0009"
+    ],
+    "edge_id": "edge-web-01--ws-03",
+    "end_timestamp": 1773484305.882998,
+    "event_type": "lateral_movement",
+    "evidence_ids": [
+     "ev-suricata-alert-00007",
+     "ev-suricata-alert-00008",
+     "ev-suricata-alert-00009",
+     "ev-suricata-fileinfo-00014",
+     "ev-suricata-flow-00029",
+     "ev-suricata-smb-00001",
+     "ev-suricata-smb-00002",
+     "ev-suricata-smb-00003",
+     "ev-suricata-smb-00004",
+     "ev-suricata-smb-00005",
+     "ev-suricata-smb-00006",
+     "ev-suricata-smb-00007",
+     "ev-zeek-conn-00029",
+     "ev-zeek-files-00014",
+     "ev-zeek-notice-00002",
+     "ev-zeek-ntlm-00001",
+     "ev-zeek-smb-files-00001",
+     "ev-zeek-smb-mapping-00001"
+    ],
+    "id": "evt-05",
+    "identity": "CORP-DEMO\\svc-demo",
+    "on_primary_path": true,
+    "phase": "Lateral Movement",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 20,
+      "signal": "base",
+      "text": "Activity pattern: lateral movement"
+     },
+     {
+      "points": 45,
+      "signal": "detection_high",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY SMB tree connect to ADMIN$ administrative share\u201d (severity 1)"
+     },
+     {
+      "points": 10,
+      "signal": "additional_signature",
+      "text": "Additional distinct signature on the same activity: \u201cBREACHREPLAY DEMO lateral-movement marker written over SMB\u201d"
+     },
+     {
+      "points": 20,
+      "signal": "zeek_notice",
+      "text": "Zeek notice raised: BreachReplay::Admin_Share_Access: SMB tree connect to administrative share \\\\10.x.x.33\\ADMIN$"
+     },
+     {
+      "points": 25,
+      "signal": "source_previously_suspicious",
+      "text": "Source WEB-01 was already involved in suspicious activity (Internal discovery, 10:31:34)"
+     },
+     {
+      "points": 10,
+      "signal": "temporal_proximity",
+      "text": "Occurred 8 s after that earlier suspicious activity"
+     },
+     {
+      "points": 10,
+      "signal": "admin_protocol",
+      "text": "Internal-to-internal administrative protocol (ntlm, smb)"
+     },
+     {
+      "points": 15,
+      "signal": "admin_share",
+      "text": "Administrative share accessed: \\\\10.x.x.33\\ADMIN$"
+     },
+     {
+      "points": 5,
+      "signal": "file_written",
+      "text": "File created on the target over SMB: Temp\\breachreplay-demo-task.txt"
+     },
+     {
+      "points": 5,
+      "signal": "identity_observed",
+      "text": "Authenticated as CORP-DEMO\\svc-demo (NTLM, account name only)"
+     }
+    ],
+    "service": "smb",
+    "severity": "critical",
+    "source_asset_id": "asset-web-01",
+    "state_changes": [
+     {
+      "asset_id": "asset-ws-03",
+      "from_state": "NORMAL",
+      "to_state": "AFFECTED"
+     }
+    ],
+    "tags": [
+     "identity:CORP-DEMO\\svc-demo",
+     "lateral_movement",
+     "proto:ntlm",
+     "proto:smb"
+    ],
+    "target_asset_ids": [
+     "asset-ws-03"
+    ],
+    "technique": {
+     "confidence": 85,
+     "reason": "Administrative SMB share access (\\\\10.x.x.33\\ADMIN$) observed between internal assets during the reconstructed suspicious sequence.",
+     "tactic": "Lateral Movement",
+     "technique_id": "T1021.002",
+     "technique_name": "Remote Services: SMB/Windows Admin Shares",
+     "url": "https://attack.mitre.org/techniques/T1021/002/"
+    },
+    "technique_confidence": 85,
+    "technique_id": "T1021.002",
+    "technique_name": "Remote Services: SMB/Windows Admin Shares",
+    "technique_reason": "Administrative SMB share access (\\\\10.x.x.33\\ADMIN$) observed between internal assets during the reconstructed suspicious sequence.",
+    "timestamp": 1773484302.0,
+    "title": "Lateral movement"
+   },
+   {
+    "confidence": 72,
+    "confidence_label": "LIKELY",
+    "description": "WS-03 connected to crown jewel DB-01 over TCP/5432 and received 24.7 KB of data. Suricata flagged it as \u201cBREACHREPLAY DEMO crown-jewel database query marker\u201d.",
+    "destination_asset_id": "asset-db-01",
+    "destination_port": 5432,
+    "detection_ids": [
+     "det-0010"
+    ],
+    "edge_id": "edge-ws-03--db-01",
+    "end_timestamp": 1773484333.329998,
+    "event_type": "crown_jewel_access",
+    "evidence_ids": [
+     "ev-suricata-alert-00010",
+     "ev-suricata-flow-00031",
+     "ev-zeek-conn-00031"
+    ],
+    "id": "evt-06",
+    "identity": null,
+    "on_primary_path": true,
+    "phase": "Collection",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 15,
+      "signal": "base",
+      "text": "Activity pattern: crown jewel access"
+     },
+     {
+      "points": 45,
+      "signal": "detection_high",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY DEMO crown-jewel database query marker\u201d (severity 1)"
+     },
+     {
+      "points": 25,
+      "signal": "source_previously_suspicious",
+      "text": "Source WS-03 was already involved in suspicious activity (Lateral movement, 10:31:42)"
+     },
+     {
+      "points": 10,
+      "signal": "temporal_proximity",
+      "text": "Occurred 30 s after that earlier suspicious activity"
+     },
+     {
+      "points": 10,
+      "signal": "crown_jewel_target",
+      "text": "Target DB-01 is a crown jewel (Customer database (designated crown jewel in asset context))"
+     }
+    ],
+    "service": null,
+    "severity": "critical",
+    "source_asset_id": "asset-ws-03",
+    "state_changes": [
+     {
+      "asset_id": "asset-db-01",
+      "from_state": "NORMAL",
+      "to_state": "AFFECTED"
+     }
+    ],
+    "tags": [
+     "crown_jewel_access"
+    ],
+    "target_asset_ids": [
+     "asset-db-01"
+    ],
+    "technique": {
+     "confidence": 60,
+     "reason": "A host already involved in the incident queried the designated crown-jewel database, and the query matched a detection. Network evidence shows access, not what was read.",
+     "tactic": "Collection",
+     "technique_id": "T1213",
+     "technique_name": "Data from Information Repositories",
+     "url": "https://attack.mitre.org/techniques/T1213/"
+    },
+    "technique_confidence": 60,
+    "technique_id": "T1213",
+    "technique_name": "Data from Information Repositories",
+    "technique_reason": "A host already involved in the incident queried the designated crown-jewel database, and the query matched a detection. Network evidence shows access, not what was read.",
+    "timestamp": 1773484332.0,
+    "title": "Crown jewel access"
+   },
+   {
+    "confidence": 83,
+    "confidence_label": "LIKELY",
+    "description": "WS-03 sent 176.0 KB to 203.0.113.45 over TCP/443 (TLS server name sync-drop.demo.example). Suricata flagged it as \u201cBREACHREPLAY DEMO TLS session to demo exfiltration endpoint\u201d.",
+    "destination_asset_id": "asset-203-0-113-45",
+    "destination_port": 443,
+    "detection_ids": [
+     "det-0011"
+    ],
+    "edge_id": "edge-ws-03--203-0-113-45",
+    "end_timestamp": 1773484360.879997,
+    "event_type": "exfiltration",
+    "evidence_ids": [
+     "ev-suricata-alert-00011",
+     "ev-suricata-flow-00034",
+     "ev-zeek-conn-00034",
+     "ev-zeek-ssl-00002"
+    ],
+    "id": "evt-07",
+    "identity": null,
+    "on_primary_path": false,
+    "phase": "Exfiltration",
+    "protocol": "tcp",
+    "reasons": [
+     {
+      "points": 25,
+      "signal": "base",
+      "text": "Activity pattern: exfiltration"
+     },
+     {
+      "points": 45,
+      "signal": "detection_high",
+      "text": "Suricata alert aligned to the activity: \u201cBREACHREPLAY DEMO TLS session to demo exfiltration endpoint\u201d (severity 1)"
+     },
+     {
+      "points": 25,
+      "signal": "source_previously_suspicious",
+      "text": "Source WS-03 was already involved in suspicious activity (Crown jewel access, 10:32:12)"
+     },
+     {
+      "points": 10,
+      "signal": "temporal_proximity",
+      "text": "Occurred 26 s after that earlier suspicious activity"
+     },
+     {
+      "points": 25,
+      "signal": "known_attacker_endpoint",
+      "text": "Destination 203.0.113.45 is the external endpoint involved in initial access (10:31:08)"
+     },
+     {
+      "points": 20,
+      "signal": "large_outbound",
+      "text": "Large outbound transfer: 176.0 KB sent vs 407 B received"
+     }
+    ],
+    "service": "ssl,tls",
+    "severity": "high",
+    "source_asset_id": "asset-ws-03",
+    "state_changes": [],
+    "tags": [
+     "exfiltration",
+     "proto:ssl",
+     "proto:tls"
+    ],
+    "target_asset_ids": [
+     "asset-203-0-113-45"
+    ],
+    "technique": {
+     "confidence": 70,
+     "reason": "Large outbound transfer from an affected internal host to the same external endpoint used for command-and-control traffic earlier in the incident.",
+     "tactic": "Exfiltration",
+     "technique_id": "T1041",
+     "technique_name": "Exfiltration Over C2 Channel",
+     "url": "https://attack.mitre.org/techniques/T1041/"
+    },
+    "technique_confidence": 70,
+    "technique_id": "T1041",
+    "technique_name": "Exfiltration Over C2 Channel",
+    "technique_reason": "Large outbound transfer from an affected internal host to the same external endpoint used for command-and-control traffic earlier in the incident.",
+    "timestamp": 1773484358.0,
+    "title": "Data exfiltration"
+   }
+  ],
+  "id": "showcase-demo-incident",
+  "incident_found": true,
+  "metadata": {
+   "analyzers": {
+    "suricata": {
+     "duration_seconds": 0.166,
+     "outputs": [
+      "eve.json",
+      "fast.log",
+      "stats.log",
+      "suricata.log"
+     ],
+     "version": "This is Suricata version 7.0.10 RELEASE"
+    },
+    "zeek": {
+     "duration_seconds": 0.54,
+     "outputs": [
+      "conn.log",
+      "dns.log",
+      "files.log",
+      "http.log",
+      "notice.log",
+      "ntlm.log",
+      "packet_filter.log",
+      "smb_files.log",
+      "smb_mapping.log",
+      "ssl.log"
+     ],
+     "version": "zeek version 7.0.5"
+    }
+   },
+   "correlation": {
+    "candidates_considered": 8,
+    "observed_context_events_dropped": 1
+   },
+   "pipeline": {
+    "description": "Precomputed by the full BreachReplay pipeline from the synthetic demo capture.",
+    "step_details": {
+     "Building attack graph": "9 nodes \u00b7 16 edges",
+     "Capture received": "Synthetic demo capture (249,199 bytes)",
+     "Correlating incident": "7 incident events from 8 candidates",
+     "File validated": "pcap capture, link type 1",
+     "Normalizing evidence": "191 evidence records \u00b7 9 assets \u00b7 13 detections",
+     "Suricata analysis": "4 output files in 0.166 s",
+     "Zeek analysis": "10 output files in 0.54 s"
+    },
+    "steps": [
+     "Capture received",
+     "File validated",
+     "Zeek analysis",
+     "Suricata analysis",
+     "Normalizing evidence",
+     "Correlating incident",
+     "Building attack graph"
+    ]
+   },
+   "synthetic": true
+  },
+  "name": "Demo incident \u00b7 synthetic network traffic",
+  "primary_attack_edges": [
+   "edge-203-0-113-45--web-01",
+   "edge-web-01--ws-03",
+   "edge-ws-03--db-01"
+  ],
+  "primary_attack_path": [
+   "asset-203-0-113-45",
+   "asset-web-01",
+   "asset-ws-03",
+   "asset-db-01"
+  ],
+  "showcase": true,
+  "source_type": "demo",
+  "started_at": 1773484260.0,
+  "summary": {
+   "affected_assets": 3,
+   "assets_in_incident": 7,
+   "assets_observed": 9,
+   "critical_detections": 8,
+   "crown_jewel_reached": true,
+   "crown_jewel_reached_at": 1773484332.0,
+   "detections": 13,
+   "evidence_records": 191,
+   "headline": "Observed attack path reached crown jewel DB-01 in 72 s.",
+   "high_confidence_events": 1,
+   "identities": [
+    "CORP-DEMO\\svc-demo"
+   ],
+   "incident_events": 7,
+   "path_duration_seconds": 64.0,
+   "phases": [
+    "Initial Access",
+    "Command and Control",
+    "Discovery",
+    "Lateral Movement",
+    "Collection",
+    "Exfiltration"
+   ],
+   "suspicious_assets": 1,
+   "techniques": [
+    "T1021.002",
+    "T1041",
+    "T1046",
+    "T1071.001",
+    "T1190",
+    "T1213"
+   ]
+  }
+ },
+ "notice": "SHOWCASE DEMO - PRECOMPUTED SYNTHETIC INCIDENT. Generated from synthetic traffic; contains no real network data."
+}

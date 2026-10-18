@@ -1,0 +1,123 @@
+# BreachReplay full mode: PCAP -> Zeek + Suricata -> correlation -> UI.
+#
+# Network layout
+#   analysis (internal: no route to the internet): analyzers <-> backend
+#   web: backend <-> frontend
+# Only the frontend (8080) and the API (8000, for /docs) are published, on localhost.
+
+x-hardening: &hardening
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+services:
+  analyzer-zeek:
+    build:
+      context: .
+      dockerfile: analyzer/Dockerfile.zeek
+      args:
+        ZEEK_IMAGE: ${ZEEK_IMAGE:-zeek/zeek:7.0.5}
+    image: breachreplay/analyzer-zeek:latest
+    <<: *hardening
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      ANALYZER_TIMEOUT_SECONDS: ${ANALYZER_TIMEOUT_SECONDS:-180}
+    volumes:
+      - workspaces:/workspaces
+    networks:
+      - analysis
+    restart: unless-stopped
+
+  analyzer-suricata:
+    build:
+      context: .
+      dockerfile: analyzer/Dockerfile.suricata
+      args:
+        SURICATA_IMAGE: ${SURICATA_IMAGE:-jasonish/suricata:7.0.10}
+    image: breachreplay/analyzer-suricata:latest
+    <<: *hardening
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      ANALYZER_TIMEOUT_SECONDS: ${ANALYZER_TIMEOUT_SECONDS:-180}
+    volumes:
+      - workspaces:/workspaces
+    networks:
+      - analysis
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:-python:3.12-slim}
+      secrets:
+        - extra_ca
+    image: breachreplay/backend:latest
+    <<: *hardening
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      ANALYZER_MODE: remote
+      ZEEK_ANALYZER_URL: http://analyzer-zeek:8700
+      SURICATA_ANALYZER_URL: http://analyzer-suricata:8700
+      WORKSPACE_ROOT: /workspaces
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-50}
+      PUBLIC_MODE: ${PUBLIC_MODE:-false}
+      SHOWCASE_MODE: "false"
+      ANALYZER_TIMEOUT_SECONDS: ${ANALYZER_TIMEOUT_SECONDS:-180}
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+    volumes:
+      - workspaces:/workspaces
+    networks:
+      - analysis
+      - web
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    depends_on:
+      analyzer-zeek:
+        condition: service_healthy
+      analyzer-suricata:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:-node:22-alpine}
+        NGINX_IMAGE: ${NGINX_IMAGE:-nginx:1.27-alpine}
+      secrets:
+        - extra_ca
+    image: breachreplay/frontend:latest
+    <<: *hardening
+    read_only: true
+    tmpfs:
+      - /tmp
+    networks:
+      - web
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  analysis:
+    internal: true
+  web: {}
+
+volumes:
+  workspaces: {}
+
+secrets:
+  extra_ca:
+    file: ${EXTRA_CA_CERT:-./.empty-ca.pem}

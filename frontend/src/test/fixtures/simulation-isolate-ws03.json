@@ -1,0 +1,142 @@
+{
+ "id": "c15ed7e4d4c9",
+ "incident_id": "showcase-demo-incident",
+ "controls": [
+  {
+   "id": "ctl-1",
+   "control_type": "isolate_asset",
+   "asset_id": "asset-ws-03",
+   "edge_id": null,
+   "protocol": null,
+   "port": null,
+   "identity": null,
+   "segment_asset_ids": [],
+   "activation": "first_detection",
+   "activation_timestamp": null
+  }
+ ],
+ "interrupted_event_id": "evt-05",
+ "interrupted_edge_id": "edge-web-01--ws-03",
+ "interrupted_at": 1773484302.0,
+ "reachable_before": [
+  "asset-db-01",
+  "asset-web-01",
+  "asset-ws-03"
+ ],
+ "reachable_after": [
+  "asset-web-01"
+ ],
+ "crown_jewel_before": true,
+ "crown_jewel_after": false,
+ "observed_path_length": 3,
+ "simulated_path_length": 1,
+ "observed_assets_reached": 3,
+ "simulated_assets_reached": 1,
+ "observed": {
+  "assets_reached": 3,
+  "affected_assets": 3,
+  "crown_jewel_reached": true,
+  "path_complete": true,
+  "path_length": 3,
+  "path_duration_seconds": 64.0
+ },
+ "simulated": {
+  "assets_reached": 1,
+  "affected_assets": 1,
+  "crown_jewel_reached": false,
+  "path_complete": false,
+  "path_length": 1,
+  "path_duration_seconds": 34.0
+ },
+ "event_outcomes": [
+  {
+   "event_id": "evt-01",
+   "outcome": "OCCURRED",
+   "blocked_by": null,
+   "reason": "Not affected by the selected controls.",
+   "state_changes": []
+  },
+  {
+   "event_id": "evt-02",
+   "outcome": "OCCURRED",
+   "blocked_by": null,
+   "reason": "Not affected by the selected controls.",
+   "state_changes": [
+    {
+     "asset_id": "asset-203-0-113-45",
+     "from_state": "NORMAL",
+     "to_state": "SUSPICIOUS"
+    },
+    {
+     "asset_id": "asset-web-01",
+     "from_state": "NORMAL",
+     "to_state": "AFFECTED"
+    }
+   ]
+  },
+  {
+   "event_id": "evt-03",
+   "outcome": "OCCURRED",
+   "blocked_by": null,
+   "reason": "Not affected by the selected controls.",
+   "state_changes": []
+  },
+  {
+   "event_id": "evt-04",
+   "outcome": "OCCURRED",
+   "blocked_by": null,
+   "reason": "Not affected by the selected controls.",
+   "state_changes": []
+  },
+  {
+   "event_id": "evt-05",
+   "outcome": "INTERRUPTED",
+   "blocked_by": "ctl-1",
+   "reason": "Under the simulated control \u201cIsolate WS-03\u201d (active from 10:31:35), the observed lateral movement WEB-01 \u2192 WS-03 would have been blocked.",
+   "state_changes": []
+  },
+  {
+   "event_id": "evt-06",
+   "outcome": "NOT_REACHED",
+   "blocked_by": null,
+   "reason": "WS-03 was never reached in the simulated scenario, so this observed step could not follow.",
+   "state_changes": []
+  },
+  {
+   "event_id": "evt-07",
+   "outcome": "NOT_REACHED",
+   "blocked_by": null,
+   "reason": "WS-03 was never reached in the simulated scenario, so this observed step could not follow.",
+   "state_changes": []
+  }
+ ],
+ "activations": [
+  {
+   "control_id": "ctl-1",
+   "timestamp": 1773484295.2,
+   "label": "Isolate WS-03",
+   "contained_asset_ids": [
+    "asset-ws-03"
+   ]
+  }
+ ],
+ "final_states": {
+  "asset-dns-01": "NORMAL",
+  "asset-ws-01": "NORMAL",
+  "asset-web-01": "AFFECTED",
+  "asset-ws-02": "NORMAL",
+  "asset-db-01": "PROTECTED",
+  "asset-ws-03": "CONTAINED",
+  "asset-198-51-100-20": "NORMAL",
+  "asset-203-0-113-45": "SUSPICIOUS",
+  "asset-10-20-2-34": "NORMAL"
+ },
+ "protected_assets": [
+  "asset-db-01"
+ ],
+ "contained_assets": [
+  "asset-ws-03"
+ ],
+ "explanation": "The observed attack path would have been interrupted at WEB-01 \u2192 WS-03 (lateral movement, 10:31:42) under the selected simulated control. In the modeled path, crown jewel DB-01 is no longer reached. Assets kept out of reach: DB-01.",
+ "disclaimer": "SIMULATED CONTAINMENT models the observed incident graph only. It shows where the observed attack path would have been interrupted under the selected hypothetical controls; it does not predict other actions a real attacker could have taken."
+}
